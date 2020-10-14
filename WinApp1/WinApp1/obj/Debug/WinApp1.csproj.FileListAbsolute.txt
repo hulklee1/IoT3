@@ -1,0 +1,11 @@
+C:\Users\kosta\source\repos\WinApp1\WinApp1\bin\Debug\WinApp1.exe.config
+C:\Users\kosta\source\repos\WinApp1\WinApp1\bin\Debug\WinApp1.exe
+C:\Users\kosta\source\repos\WinApp1\WinApp1\bin\Debug\WinApp1.pdb
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.csprojAssemblyReference.cache
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.Properties.Resources.resources
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.csproj.GenerateResource.cache
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.csproj.CoreCompileInputs.cache
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.exe
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.pdb
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.FormTest1.resources
+C:\Users\kosta\source\repos\WinApp1\WinApp1\obj\Debug\WinApp1.Form2.resources
