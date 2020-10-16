@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,11 @@ namespace WinApp1
 {
     public partial class FormTest1 : Form
     {
+        [DllImport("kernel32.dll")] // D L L Import
+        private static extern int GetPrivateProfileString(string Section, string key, string def, StringBuilder sb, int size, string path);
+        [DllImport("kernel32.dll")]
+        private static extern int WritePrivateProfileString(string Section, string key, string val, string path);
+
         public FormTest1()  // 생성자
         {
             InitializeComponent();
@@ -102,18 +108,85 @@ namespace WinApp1
             //int k = n2 - n1 - 1;  // 문자열 길이 계산
             //string ss = sStr.Substring(n1 + 1, k);
         }
+
+        int cn1, cn2, cn3, cn4, cn5;    // Form2의 콤보박스 설정값 보관용
         private void button2_Click(object sender, EventArgs e)
         {
             Form2 dlg = new Form2();
 
+            dlg.cn1 = cn1;
+            dlg.cn2 = cn2;
+            dlg.cn3 = cn3;
+            dlg.cn4 = cn4;
+            dlg.cn5 = cn5;
+
             DialogResult dr = dlg.ShowDialog();
             if(dr == DialogResult.OK)
             {
+                cn1 = dlg.cn1;
+                cn2 = dlg.cn2;
+                cn3 = dlg.cn3;
+                cn4 = dlg.cn4;
+                cn5 = dlg.cn5;
+
                 sStr = string.Format("{0},{1},{2},{3},{4}", dlg.as1, dlg.as2, dlg.as3, dlg.as4, dlg.as5);
                 MessageBox.Show(sStr);
                 tbTest.Text = sStr;
                 btnNoop.Text = "Ready";
             }
+        }
+        string sPath = @".\WinApp1.ini";
+        public int GetInI_Int(string sec, string key, int def = 0)
+        {
+            StringBuilder sb = new StringBuilder();
+            GetPrivateProfileString(sec, key, $"{def}", sb, 500, sPath); 
+            int nVal = int.Parse(sb.ToString());
+
+            return nVal;
+        }
+
+        // 함수의 일반화 #3 - GetInI_String(string  section, string key, string def);
+        //               인수 (Arg) section : InI 파일의 Section 이름
+        //                          key : Key 이름
+        //                          def : default string
+        //              return :  sValue : Ini 파일에서 추출한 string 값
+
+        public string GetInI_String(string sec, string key, string def)
+        {
+            StringBuilder sb = new StringBuilder();
+            GetPrivateProfileString(sec, key, $"{def}", sb, 500, sPath);
+            string sVal = sb.ToString();
+
+            return sVal;
+        }
+
+
+        private void FormTest1_Load(object sender, EventArgs e)
+        {
+            //StringBuilder sb = new StringBuilder();
+            //GetPrivateProfileString("Form2 Combo Set", "cn1", "0", sb, 500, sPath); cn1 = int.Parse(sb.ToString());
+            cn1 = GetInI_Int("Form2 Combo Set", "cn1");
+            cn2 = GetInI_Int("Form2 Combo Set", "cn2");
+            cn3 = GetInI_Int("Form2 Combo Set", "cn3");
+            cn4 = GetInI_Int("Form2 Combo Set", "cn4");
+            cn4 = GetInI_Int("Form2 Combo Set", "cn5");
+
+            this.Width  = GetInI_Int("Window Configuration", "Width", 1000);
+            this.Height = GetInI_Int("Window Configuration", "Height", 700);
+            this.Text   = GetInI_String("Window Configuration", "Title", "...");
+        }
+
+        private void FormTest1_FormClosed(object sender, FormClosedEventArgs e)
+        {                               // string.Format("stringFormatText", arg1,arg2... );
+            WritePrivateProfileString("Form2 Combo Set", "cn1", $"{cn1}", sPath);  // string.Format("{0}",cn1)==> $"{cn1}" : 보간문자열 처리
+            WritePrivateProfileString("Form2 Combo Set", "cn2", $"{cn2}", sPath);  // string.Format("{0}",cn1)==> $"{cn1}" : 보간문자열 처리
+            WritePrivateProfileString("Form2 Combo Set", "cn3", $"{cn3}", sPath);  // string.Format("{0}",cn1)==> $"{cn1}" : 보간문자열 처리
+            WritePrivateProfileString("Form2 Combo Set", "cn4", $"{cn4}", sPath);  // string.Format("{0}",cn1)==> $"{cn1}" : 보간문자열 처리
+            WritePrivateProfileString("Form2 Combo Set", "cn5", $"{cn5}", sPath);  // string.Format("{0}",cn1)==> $"{cn1}" : 보간문자열 처리
+
+            WritePrivateProfileString("Window Configuration", "Width", $"{this.Width}", sPath);
+            WritePrivateProfileString("Window Configuration", "Height", $"{this.Height}", sPath);
+            WritePrivateProfileString("Window Configuration", "Title", $"{this.Text}", sPath);
         }
 
         private void btnNoop_Click(object sender, EventArgs e)
@@ -168,15 +241,21 @@ namespace WinApp1
         {
             string str = tbTest.Text;
             int len = str.Length;
+            int cNum = int.Parse(textBox3.Text);
             int i, j, k;
+
+            StringBuilder sb = new StringBuilder();
 
             textBox2.Text = "";
             for(i = 0; i<len;i++)
             {
                 char a = str[i];  // 문자열 str의 첫번째 문자
                 byte c = (byte)a;  // byte : 1 byte int
-                textBox2.Text += string.Format(" {0:X2}", c);
+                //textBox2.Text += string.Format(" {0:X2}", c);
+                sb.Append($" {c:X2}");
+                if ((i+1)%cNum == 0) sb.Append("\r\n");
             }
+            textBox2.Text = sb.ToString();
         }
     }
 }

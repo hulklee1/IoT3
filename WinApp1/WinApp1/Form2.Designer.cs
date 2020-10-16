@@ -50,7 +50,7 @@
             "안녕하세요",
             "Hi"});
             this.comboBox1.Location = new System.Drawing.Point(166, 40);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(171, 26);
             this.comboBox1.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(84, 260);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(107, 34);
             this.btnOK.TabIndex = 2;
@@ -85,7 +85,7 @@
             "지원씨",
             "영민씨"});
             this.comboBox2.Location = new System.Drawing.Point(166, 80);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(171, 26);
             this.comboBox2.TabIndex = 0;
@@ -108,7 +108,7 @@
             "내일",
             "어제"});
             this.comboBox3.Location = new System.Drawing.Point(166, 118);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(171, 26);
             this.comboBox3.TabIndex = 0;
@@ -132,7 +132,7 @@
             "ㅎ",
             "ㅈㅅ"});
             this.comboBox4.Location = new System.Drawing.Point(166, 158);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(171, 26);
             this.comboBox4.TabIndex = 0;
@@ -151,7 +151,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(250, 260);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 34);
             this.btnCancel.TabIndex = 2;
@@ -167,7 +167,7 @@
             "33",
             "44"});
             this.comboBox5.Location = new System.Drawing.Point(166, 196);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(171, 26);
             this.comboBox5.TabIndex = 0;
@@ -199,9 +199,10 @@
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Configuration";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

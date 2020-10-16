@@ -52,6 +52,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +61,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(436, 98);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 60);
             this.button1.TabIndex = 0;
@@ -82,7 +84,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(54, 202);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(470, 28);
             this.textBox1.TabIndex = 2;
@@ -93,7 +95,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
             this.checkBox1.Location = new System.Drawing.Point(144, 36);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(96, 22);
             this.checkBox1.TabIndex = 3;
@@ -106,7 +108,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(280, 36);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(96, 22);
             this.checkBox2.TabIndex = 3;
@@ -136,7 +138,7 @@
             "4",
             "5"});
             this.comboBox1.Location = new System.Drawing.Point(76, 148);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(280, 26);
             this.comboBox1.TabIndex = 4;
@@ -151,11 +153,11 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(17, 18);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(17, 54);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(577, 272);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(577, 277);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -164,7 +166,7 @@
             // 
             this.rbOption2.AutoSize = true;
             this.rbOption2.Location = new System.Drawing.Point(243, 132);
-            this.rbOption2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbOption2.Margin = new System.Windows.Forms.Padding(4);
             this.rbOption2.Name = "rbOption2";
             this.rbOption2.Size = new System.Drawing.Size(103, 22);
             this.rbOption2.TabIndex = 7;
@@ -177,7 +179,7 @@
             this.rbOption1.AutoSize = true;
             this.rbOption1.Checked = true;
             this.rbOption1.Location = new System.Drawing.Point(243, 84);
-            this.rbOption1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbOption1.Margin = new System.Windows.Forms.Padding(4);
             this.rbOption1.Name = "rbOption1";
             this.rbOption1.Size = new System.Drawing.Size(103, 22);
             this.rbOption1.TabIndex = 7;
@@ -194,9 +196,9 @@
             this.groupBox2.Controls.Add(this.btnCombo);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Location = new System.Drawing.Point(17, 350);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(577, 274);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
@@ -206,7 +208,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(391, 204);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(103, 22);
             this.radioButton2.TabIndex = 7;
@@ -218,7 +220,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(391, 147);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(103, 22);
             this.radioButton1.TabIndex = 7;
@@ -239,7 +241,7 @@
             // tbCombo
             // 
             this.tbCombo.Location = new System.Drawing.Point(216, 72);
-            this.tbCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCombo.Margin = new System.Windows.Forms.Padding(4);
             this.tbCombo.Name = "tbCombo";
             this.tbCombo.Size = new System.Drawing.Size(140, 28);
             this.tbCombo.TabIndex = 2;
@@ -249,7 +251,7 @@
             // btnCombo
             // 
             this.btnCombo.Location = new System.Drawing.Point(410, 72);
-            this.btnCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCombo.Margin = new System.Windows.Forms.Padding(4);
             this.btnCombo.Name = "btnCombo";
             this.btnCombo.Size = new System.Drawing.Size(90, 32);
             this.btnCombo.TabIndex = 0;
@@ -260,7 +262,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(660, 120);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 60);
             this.button2.TabIndex = 0;
@@ -271,7 +273,7 @@
             // tbTest
             // 
             this.tbTest.Location = new System.Drawing.Point(657, 282);
-            this.tbTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTest.Margin = new System.Windows.Forms.Padding(4);
             this.tbTest.Multiline = true;
             this.tbTest.Name = "tbTest";
             this.tbTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -283,7 +285,7 @@
             // 
             this.btnNoop.Enabled = false;
             this.btnNoop.Location = new System.Drawing.Point(863, 54);
-            this.btnNoop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNoop.Margin = new System.Windows.Forms.Padding(4);
             this.btnNoop.Name = "btnNoop";
             this.btnNoop.Size = new System.Drawing.Size(177, 28);
             this.btnNoop.TabIndex = 0;
@@ -302,7 +304,7 @@
             "3",
             "4"});
             this.comboBox2.Location = new System.Drawing.Point(867, 116);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(171, 26);
             this.comboBox2.TabIndex = 7;
@@ -311,7 +313,7 @@
             // btnTest
             // 
             this.btnTest.Location = new System.Drawing.Point(867, 154);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(4);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(173, 39);
             this.btnTest.TabIndex = 8;
@@ -348,12 +350,31 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Hexa View";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(944, 241);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 28);
+            this.textBox3.TabIndex = 10;
+            this.textBox3.Text = "8";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(849, 246);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 18);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Char Num";
+            // 
             // FormTest1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 675);
+            this.ClientSize = new System.Drawing.Size(1060, 638);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.comboBox2);
@@ -363,9 +384,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.tbTest);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTest1";
-            this.Text = "C# Test Form Ver.2.1.4";
+            this.Text = "My Test Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormTest1_FormClosed);
+            this.Load += new System.EventHandler(this.FormTest1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -401,6 +424,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label6;
     }
 }
 
