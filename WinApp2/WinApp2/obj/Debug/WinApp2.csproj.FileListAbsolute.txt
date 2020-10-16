@@ -8,3 +8,14 @@ C:\Users\kosta\source\repos\WinApp2\WinApp2\obj\Debug\WinApp2.csproj.GenerateRes
 C:\Users\kosta\source\repos\WinApp2\WinApp2\obj\Debug\WinApp2.csproj.CoreCompileInputs.cache
 C:\Users\kosta\source\repos\WinApp2\WinApp2\obj\Debug\WinApp2.exe
 C:\Users\kosta\source\repos\WinApp2\WinApp2\obj\Debug\WinApp2.pdb
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\bin\Debug\WinApp2.exe.config
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\bin\Debug\WinApp2.exe
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\bin\Debug\WinApp2.pdb
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.csprojAssemblyReference.cache
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.Form1.resources
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.Properties.Resources.resources
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.csproj.GenerateResource.cache
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.csproj.CoreCompileInputs.cache
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.exe
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.pdb
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.Form2.resources
