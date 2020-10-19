@@ -45,17 +45,32 @@
             this.tbTest11 = new System.Windows.Forms.TextBox();
             this.btnTest11 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tbTest21 = new System.Windows.Forms.TextBox();
-            this.tbTest22 = new System.Windows.Forms.TextBox();
-            this.btnForm2Test = new System.Windows.Forms.Button();
-            this.btnFileOpen = new System.Windows.Forms.Button();
             this.chkViewHexa = new System.Windows.Forms.CheckBox();
+            this.btnFileOpen = new System.Windows.Forms.Button();
+            this.btnForm2Test = new System.Windows.Forms.Button();
+            this.tbTest22 = new System.Windows.Forms.TextBox();
+            this.tbTest21 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnTemp = new System.Windows.Forms.Button();
+            this.rbText21 = new System.Windows.Forms.RadioButton();
+            this.rbText22 = new System.Windows.Forms.RadioButton();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.text파일열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.form2CallTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.배열TestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.출력창설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTbSet21 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTbSet22 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -66,10 +81,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("궁서", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabControl1.Location = new System.Drawing.Point(1, 0);
+            this.tabControl1.Location = new System.Drawing.Point(1, 42);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(859, 573);
+            this.tabControl1.Size = new System.Drawing.Size(859, 531);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -77,10 +92,10 @@
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("궁서", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(851, 543);
+            this.tabPage1.Size = new System.Drawing.Size(851, 541);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "문자열 테스트";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -234,7 +249,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.rbText22);
+            this.tabPage2.Controls.Add(this.rbText21);
             this.tabPage2.Controls.Add(this.chkViewHexa);
+            this.tabPage2.Controls.Add(this.btnTemp);
             this.tabPage2.Controls.Add(this.btnFileOpen);
             this.tabPage2.Controls.Add(this.btnForm2Test);
             this.tabPage2.Controls.Add(this.tbTest22);
@@ -242,53 +260,10 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(851, 541);
+            this.tabPage2.Size = new System.Drawing.Size(851, 499);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tbTest21
-            // 
-            this.tbTest21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbTest21.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbTest21.Location = new System.Drawing.Point(7, 57);
-            this.tbTest21.Multiline = true;
-            this.tbTest21.Name = "tbTest21";
-            this.tbTest21.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbTest21.Size = new System.Drawing.Size(373, 476);
-            this.tbTest21.TabIndex = 2;
-            // 
-            // tbTest22
-            // 
-            this.tbTest22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTest22.Location = new System.Drawing.Point(456, 57);
-            this.tbTest22.Multiline = true;
-            this.tbTest22.Name = "tbTest22";
-            this.tbTest22.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbTest22.Size = new System.Drawing.Size(386, 476);
-            this.tbTest22.TabIndex = 3;
-            // 
-            // btnForm2Test
-            // 
-            this.btnForm2Test.Location = new System.Drawing.Point(456, 20);
-            this.btnForm2Test.Name = "btnForm2Test";
-            this.btnForm2Test.Size = new System.Drawing.Size(128, 31);
-            this.btnForm2Test.TabIndex = 4;
-            this.btnForm2Test.Text = "Call Form2";
-            this.btnForm2Test.UseVisualStyleBackColor = true;
-            this.btnForm2Test.Click += new System.EventHandler(this.btnForm2Test_Click);
-            // 
-            // btnFileOpen
-            // 
-            this.btnFileOpen.Location = new System.Drawing.Point(7, 20);
-            this.btnFileOpen.Name = "btnFileOpen";
-            this.btnFileOpen.Size = new System.Drawing.Size(128, 31);
-            this.btnFileOpen.TabIndex = 4;
-            this.btnFileOpen.Text = "File Open";
-            this.btnFileOpen.UseVisualStyleBackColor = true;
-            this.btnFileOpen.Click += new System.EventHandler(this.btnFileOpen_Click);
             // 
             // chkViewHexa
             // 
@@ -302,15 +277,179 @@
             this.chkViewHexa.Text = "View in Hexa";
             this.chkViewHexa.UseVisualStyleBackColor = true;
             // 
+            // btnFileOpen
+            // 
+            this.btnFileOpen.Location = new System.Drawing.Point(7, 20);
+            this.btnFileOpen.Name = "btnFileOpen";
+            this.btnFileOpen.Size = new System.Drawing.Size(115, 31);
+            this.btnFileOpen.TabIndex = 4;
+            this.btnFileOpen.Text = "File Open";
+            this.btnFileOpen.UseVisualStyleBackColor = true;
+            this.btnFileOpen.Click += new System.EventHandler(this.btnFileOpen_Click);
+            // 
+            // btnForm2Test
+            // 
+            this.btnForm2Test.Location = new System.Drawing.Point(456, 20);
+            this.btnForm2Test.Name = "btnForm2Test";
+            this.btnForm2Test.Size = new System.Drawing.Size(128, 31);
+            this.btnForm2Test.TabIndex = 4;
+            this.btnForm2Test.Text = "Call Form2";
+            this.btnForm2Test.UseVisualStyleBackColor = true;
+            this.btnForm2Test.Click += new System.EventHandler(this.btnForm2Test_Click);
+            // 
+            // tbTest22
+            // 
+            this.tbTest22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTest22.Location = new System.Drawing.Point(456, 98);
+            this.tbTest22.Multiline = true;
+            this.tbTest22.Name = "tbTest22";
+            this.tbTest22.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbTest22.Size = new System.Drawing.Size(386, 393);
+            this.tbTest22.TabIndex = 3;
+            // 
+            // tbTest21
+            // 
+            this.tbTest21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbTest21.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbTest21.Location = new System.Drawing.Point(7, 98);
+            this.tbTest21.Multiline = true;
+            this.tbTest21.Name = "tbTest21";
+            this.tbTest21.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbTest21.Size = new System.Drawing.Size(373, 393);
+            this.tbTest21.TabIndex = 2;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnTemp
+            // 
+            this.btnTemp.Location = new System.Drawing.Point(128, 20);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(84, 31);
+            this.btnTemp.TabIndex = 4;
+            this.btnTemp.Text = "Test#1";
+            this.btnTemp.UseVisualStyleBackColor = true;
+            this.btnTemp.Click += new System.EventHandler(this.btnTemp_Click);
+            // 
+            // rbText21
+            // 
+            this.rbText21.AutoSize = true;
+            this.rbText21.Location = new System.Drawing.Point(7, 70);
+            this.rbText21.Name = "rbText21";
+            this.rbText21.Size = new System.Drawing.Size(187, 22);
+            this.rbText21.TabIndex = 6;
+            this.rbText21.Text = "Current Window1";
+            this.rbText21.UseVisualStyleBackColor = true;
+            this.rbText21.Click += new System.EventHandler(this.rbText2_Click);
+            // 
+            // rbText22
+            // 
+            this.rbText22.AutoSize = true;
+            this.rbText22.Checked = true;
+            this.rbText22.Location = new System.Drawing.Point(456, 70);
+            this.rbText22.Name = "rbText22";
+            this.rbText22.Size = new System.Drawing.Size(187, 22);
+            this.rbText22.TabIndex = 6;
+            this.rbText22.TabStop = true;
+            this.rbText22.Text = "Current Window2";
+            this.rbText22.UseVisualStyleBackColor = true;
+            this.rbText22.Click += new System.EventHandler(this.rbText2_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.파일ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(859, 33);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 파일ToolStripMenuItem
+            // 
+            this.파일ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.text파일열기ToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.form2CallTestToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.배열TestToolStripMenuItem,
+            this.종료ToolStripMenuItem,
+            this.출력창설정ToolStripMenuItem});
+            this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
+            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
+            this.파일ToolStripMenuItem.Text = "파일";
+            // 
+            // text파일열기ToolStripMenuItem
+            // 
+            this.text파일열기ToolStripMenuItem.Name = "text파일열기ToolStripMenuItem";
+            this.text파일열기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.text파일열기ToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
+            this.text파일열기ToolStripMenuItem.Text = "Text 파일 열기(O)";
+            this.text파일열기ToolStripMenuItem.Click += new System.EventHandler(this.btnFileOpen_Click);
+            // 
+            // form2CallTestToolStripMenuItem
+            // 
+            this.form2CallTestToolStripMenuItem.Name = "form2CallTestToolStripMenuItem";
+            this.form2CallTestToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
+            this.form2CallTestToolStripMenuItem.Text = "Form2 Call test";
+            // 
+            // 배열TestToolStripMenuItem
+            // 
+            this.배열TestToolStripMenuItem.Name = "배열TestToolStripMenuItem";
+            this.배열TestToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
+            this.배열TestToolStripMenuItem.Text = "배열 test";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(319, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(319, 6);
+            // 
+            // 종료ToolStripMenuItem
+            // 
+            this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
+            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
+            this.종료ToolStripMenuItem.Text = "종료";
+            // 
+            // 출력창설정ToolStripMenuItem
+            // 
+            this.출력창설정ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuTbSet21,
+            this.mnuTbSet22});
+            this.출력창설정ToolStripMenuItem.Name = "출력창설정ToolStripMenuItem";
+            this.출력창설정ToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
+            this.출력창설정ToolStripMenuItem.Text = "출력창 설정";
+            // 
+            // mnuTbSet21
+            // 
+            this.mnuTbSet21.Name = "mnuTbSet21";
+            this.mnuTbSet21.Size = new System.Drawing.Size(270, 34);
+            this.mnuTbSet21.Text = "Text 창 #1";
+            this.mnuTbSet21.Click += new System.EventHandler(this.mnuTbSet21_Click);
+            // 
+            // mnuTbSet22
+            // 
+            this.mnuTbSet22.Checked = true;
+            this.mnuTbSet22.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mnuTbSet22.Name = "mnuTbSet22";
+            this.mnuTbSet22.Size = new System.Drawing.Size(270, 34);
+            this.mnuTbSet22.Text = "Text 창 #2";
+            this.mnuTbSet22.Click += new System.EventHandler(this.mnuTbSet22_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(859, 573);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "Form1";
             this.Text = "C# Programming Test Ver.2.0";
@@ -325,7 +464,10 @@
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -354,6 +496,20 @@
         private System.Windows.Forms.CheckBox chkViewHexa;
         private System.Windows.Forms.Button btnFileOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnTemp;
+        private System.Windows.Forms.RadioButton rbText22;
+        private System.Windows.Forms.RadioButton rbText21;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 파일ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem text파일열기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem form2CallTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem 배열TestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 출력창설정ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuTbSet21;
+        private System.Windows.Forms.ToolStripMenuItem mnuTbSet22;
     }
 }
 
