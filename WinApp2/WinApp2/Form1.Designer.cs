@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -45,32 +46,56 @@
             this.tbTest11 = new System.Windows.Forms.TextBox();
             this.btnTest11 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rbText22 = new System.Windows.Forms.RadioButton();
+            this.rbText21 = new System.Windows.Forms.RadioButton();
             this.chkViewHexa = new System.Windows.Forms.CheckBox();
+            this.btnTemp = new System.Windows.Forms.Button();
             this.btnFileOpen = new System.Windows.Forms.Button();
             this.btnForm2Test = new System.Windows.Forms.Button();
             this.tbTest22 = new System.Windows.Forms.TextBox();
+            this.PopupMenu2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.현재창을출력창으로2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbTest21 = new System.Windows.Forms.TextBox();
+            this.PopupMenu1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.현재창을출력창으로1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnTemp = new System.Windows.Forms.Button();
-            this.rbText21 = new System.Windows.Forms.RadioButton();
-            this.rbText22 = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.text파일열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.form2CallTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.배열TestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.form2CallTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.배열TestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.출력창설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTbSet21 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTbSet22 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbGridCmd = new System.Windows.Forms.TextBox();
+            this.btnGridCmd = new System.Windows.Forms.Button();
+            this.PopupMenu3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAddRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbSql = new System.Windows.Forms.TextBox();
+            this.btnExecSql = new System.Windows.Forms.Button();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dBFileSelect = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDBOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.PopupMenu2.SuspendLayout();
+            this.PopupMenu1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.PopupMenu3.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -80,11 +105,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("궁서", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tabControl1.Location = new System.Drawing.Point(1, 42);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(859, 531);
+            this.tabControl1.Size = new System.Drawing.Size(723, 433);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -95,7 +121,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(851, 541);
+            this.tabPage1.Size = new System.Drawing.Size(637, 399);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "문자열 테스트";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -260,10 +286,34 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(851, 499);
+            this.tabPage2.Size = new System.Drawing.Size(637, 399);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "배열테스트";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rbText22
+            // 
+            this.rbText22.AutoSize = true;
+            this.rbText22.Checked = true;
+            this.rbText22.Location = new System.Drawing.Point(456, 70);
+            this.rbText22.Name = "rbText22";
+            this.rbText22.Size = new System.Drawing.Size(165, 25);
+            this.rbText22.TabIndex = 6;
+            this.rbText22.TabStop = true;
+            this.rbText22.Text = "Current Window2";
+            this.rbText22.UseVisualStyleBackColor = true;
+            this.rbText22.Click += new System.EventHandler(this.rbText2_Click);
+            // 
+            // rbText21
+            // 
+            this.rbText21.AutoSize = true;
+            this.rbText21.Location = new System.Drawing.Point(7, 70);
+            this.rbText21.Name = "rbText21";
+            this.rbText21.Size = new System.Drawing.Size(165, 25);
+            this.rbText21.TabIndex = 6;
+            this.rbText21.Text = "Current Window1";
+            this.rbText21.UseVisualStyleBackColor = true;
+            this.rbText21.Click += new System.EventHandler(this.rbText2_Click);
             // 
             // chkViewHexa
             // 
@@ -272,10 +322,20 @@
             this.chkViewHexa.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkViewHexa.Location = new System.Drawing.Point(232, 25);
             this.chkViewHexa.Name = "chkViewHexa";
-            this.chkViewHexa.Size = new System.Drawing.Size(148, 22);
+            this.chkViewHexa.Size = new System.Drawing.Size(132, 25);
             this.chkViewHexa.TabIndex = 5;
             this.chkViewHexa.Text = "View in Hexa";
             this.chkViewHexa.UseVisualStyleBackColor = true;
+            // 
+            // btnTemp
+            // 
+            this.btnTemp.Location = new System.Drawing.Point(128, 20);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(84, 31);
+            this.btnTemp.TabIndex = 4;
+            this.btnTemp.Text = "Test#1";
+            this.btnTemp.UseVisualStyleBackColor = true;
+            this.btnTemp.Click += new System.EventHandler(this.btnTemp_Click);
             // 
             // btnFileOpen
             // 
@@ -301,71 +361,99 @@
             // 
             this.tbTest22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTest22.Location = new System.Drawing.Point(456, 98);
+            this.tbTest22.ContextMenuStrip = this.PopupMenu2;
+            this.tbTest22.Location = new System.Drawing.Point(242, 98);
             this.tbTest22.Multiline = true;
             this.tbTest22.Name = "tbTest22";
             this.tbTest22.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbTest22.Size = new System.Drawing.Size(386, 393);
+            this.tbTest22.Size = new System.Drawing.Size(386, 293);
             this.tbTest22.TabIndex = 3;
+            // 
+            // PopupMenu2
+            // 
+            this.PopupMenu2.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.PopupMenu2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.현재창을출력창으로2ToolStripMenuItem});
+            this.PopupMenu2.Name = "PopupMenu2";
+            this.PopupMenu2.Size = new System.Drawing.Size(275, 36);
+            // 
+            // 현재창을출력창으로2ToolStripMenuItem
+            // 
+            this.현재창을출력창으로2ToolStripMenuItem.Name = "현재창을출력창으로2ToolStripMenuItem";
+            this.현재창을출력창으로2ToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
+            this.현재창을출력창으로2ToolStripMenuItem.Text = "현재 창을 출력창으로 2";
+            this.현재창을출력창으로2ToolStripMenuItem.Click += new System.EventHandler(this.mnuSelect2_Click);
             // 
             // tbTest21
             // 
             this.tbTest21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbTest21.ContextMenuStrip = this.PopupMenu1;
             this.tbTest21.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tbTest21.Location = new System.Drawing.Point(7, 98);
             this.tbTest21.Multiline = true;
             this.tbTest21.Name = "tbTest21";
             this.tbTest21.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbTest21.Size = new System.Drawing.Size(373, 393);
+            this.tbTest21.Size = new System.Drawing.Size(373, 293);
             this.tbTest21.TabIndex = 2;
+            // 
+            // PopupMenu1
+            // 
+            this.PopupMenu1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.PopupMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.현재창을출력창으로1ToolStripMenuItem});
+            this.PopupMenu1.Name = "PopupMenu1";
+            this.PopupMenu1.Size = new System.Drawing.Size(269, 36);
+            // 
+            // 현재창을출력창으로1ToolStripMenuItem
+            // 
+            this.현재창을출력창으로1ToolStripMenuItem.Name = "현재창을출력창으로1ToolStripMenuItem";
+            this.현재창을출력창으로1ToolStripMenuItem.Size = new System.Drawing.Size(268, 32);
+            this.현재창을출력창으로1ToolStripMenuItem.Text = "현재창을 출력창으로 1";
+            this.현재창을출력창으로1ToolStripMenuItem.Click += new System.EventHandler(this.mnuSelect1_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnExecSql);
+            this.tabPage3.Controls.Add(this.tbSql);
+            this.tabPage3.Controls.Add(this.btnGridCmd);
+            this.tabPage3.Controls.Add(this.tbGridCmd);
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(715, 399);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Data Grid";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.PopupMenu3;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 83);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.Size = new System.Drawing.Size(709, 313);
+            this.dataGridView1.TabIndex = 0;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnTemp
-            // 
-            this.btnTemp.Location = new System.Drawing.Point(128, 20);
-            this.btnTemp.Name = "btnTemp";
-            this.btnTemp.Size = new System.Drawing.Size(84, 31);
-            this.btnTemp.TabIndex = 4;
-            this.btnTemp.Text = "Test#1";
-            this.btnTemp.UseVisualStyleBackColor = true;
-            this.btnTemp.Click += new System.EventHandler(this.btnTemp_Click);
-            // 
-            // rbText21
-            // 
-            this.rbText21.AutoSize = true;
-            this.rbText21.Location = new System.Drawing.Point(7, 70);
-            this.rbText21.Name = "rbText21";
-            this.rbText21.Size = new System.Drawing.Size(187, 22);
-            this.rbText21.TabIndex = 6;
-            this.rbText21.Text = "Current Window1";
-            this.rbText21.UseVisualStyleBackColor = true;
-            this.rbText21.Click += new System.EventHandler(this.rbText2_Click);
-            // 
-            // rbText22
-            // 
-            this.rbText22.AutoSize = true;
-            this.rbText22.Checked = true;
-            this.rbText22.Location = new System.Drawing.Point(456, 70);
-            this.rbText22.Name = "rbText22";
-            this.rbText22.Size = new System.Drawing.Size(187, 22);
-            this.rbText22.TabIndex = 6;
-            this.rbText22.TabStop = true;
-            this.rbText22.Text = "Current Window2";
-            this.rbText22.UseVisualStyleBackColor = true;
-            this.rbText22.Click += new System.EventHandler(this.rbText2_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.파일ToolStripMenuItem});
+            this.파일ToolStripMenuItem,
+            this.databaseToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(859, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(723, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -391,27 +479,27 @@
             this.text파일열기ToolStripMenuItem.Text = "Text 파일 열기(O)";
             this.text파일열기ToolStripMenuItem.Click += new System.EventHandler(this.btnFileOpen_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(319, 6);
+            // 
             // form2CallTestToolStripMenuItem
             // 
             this.form2CallTestToolStripMenuItem.Name = "form2CallTestToolStripMenuItem";
             this.form2CallTestToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.form2CallTestToolStripMenuItem.Text = "Form2 Call test";
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(319, 6);
+            // 
             // 배열TestToolStripMenuItem
             // 
             this.배열TestToolStripMenuItem.Name = "배열TestToolStripMenuItem";
             this.배열TestToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.배열TestToolStripMenuItem.Text = "배열 test";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(319, 6);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(319, 6);
             // 
             // 종료ToolStripMenuItem
             // 
@@ -431,7 +519,7 @@
             // mnuTbSet21
             // 
             this.mnuTbSet21.Name = "mnuTbSet21";
-            this.mnuTbSet21.Size = new System.Drawing.Size(270, 34);
+            this.mnuTbSet21.Size = new System.Drawing.Size(199, 34);
             this.mnuTbSet21.Text = "Text 창 #1";
             this.mnuTbSet21.Click += new System.EventHandler(this.mnuTbSet21_Click);
             // 
@@ -440,14 +528,116 @@
             this.mnuTbSet22.Checked = true;
             this.mnuTbSet22.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuTbSet22.Name = "mnuTbSet22";
-            this.mnuTbSet22.Size = new System.Drawing.Size(270, 34);
+            this.mnuTbSet22.Size = new System.Drawing.Size(199, 34);
             this.mnuTbSet22.Text = "Text 창 #2";
             this.mnuTbSet22.Click += new System.EventHandler(this.mnuTbSet22_Click);
+            // 
+            // tbGridCmd
+            // 
+            this.tbGridCmd.Location = new System.Drawing.Point(3, 3);
+            this.tbGridCmd.Name = "tbGridCmd";
+            this.tbGridCmd.Size = new System.Drawing.Size(111, 29);
+            this.tbGridCmd.TabIndex = 1;
+            // 
+            // btnGridCmd
+            // 
+            this.btnGridCmd.Location = new System.Drawing.Point(3, 38);
+            this.btnGridCmd.Name = "btnGridCmd";
+            this.btnGridCmd.Size = new System.Drawing.Size(111, 29);
+            this.btnGridCmd.TabIndex = 2;
+            this.btnGridCmd.Text = "Grid Control";
+            this.btnGridCmd.UseVisualStyleBackColor = true;
+            this.btnGridCmd.Click += new System.EventHandler(this.btnGridCmd_Click);
+            // 
+            // PopupMenu3
+            // 
+            this.PopupMenu3.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.PopupMenu3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddRow});
+            this.PopupMenu3.Name = "PopupMenu3";
+            this.PopupMenu3.Size = new System.Drawing.Size(145, 36);
+            // 
+            // mnuAddRow
+            // 
+            this.mnuAddRow.Name = "mnuAddRow";
+            this.mnuAddRow.Size = new System.Drawing.Size(144, 32);
+            this.mnuAddRow.Text = "행 추가";
+            this.mnuAddRow.Click += new System.EventHandler(this.mnuAddRow_Click);
+            // 
+            // tbSql
+            // 
+            this.tbSql.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSql.Location = new System.Drawing.Point(120, 3);
+            this.tbSql.Multiline = true;
+            this.tbSql.Name = "tbSql";
+            this.tbSql.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbSql.Size = new System.Drawing.Size(527, 64);
+            this.tbSql.TabIndex = 3;
+            // 
+            // btnExecSql
+            // 
+            this.btnExecSql.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExecSql.Location = new System.Drawing.Point(653, 3);
+            this.btnExecSql.Name = "btnExecSql";
+            this.btnExecSql.Size = new System.Drawing.Size(59, 64);
+            this.btnExecSql.TabIndex = 4;
+            this.btnExecSql.Text = "Go";
+            this.btnExecSql.UseVisualStyleBackColor = true;
+            this.btnExecSql.Click += new System.EventHandler(this.btnExecSql_Click);
+            // 
+            // databaseToolStripMenuItem
+            // 
+            this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dBFileSelect,
+            this.mnuDBOpen});
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.databaseToolStripMenuItem.Text = "Database";
+            // 
+            // dBFileSelect
+            // 
+            this.dBFileSelect.Name = "dBFileSelect";
+            this.dBFileSelect.Size = new System.Drawing.Size(270, 34);
+            this.dBFileSelect.Text = "DB File Select";
+            this.dBFileSelect.Click += new System.EventHandler(this.dBFileSelect_Click);
+            // 
+            // mnuDBOpen
+            // 
+            this.mnuDBOpen.Name = "mnuDBOpen";
+            this.mnuDBOpen.Size = new System.Drawing.Size(270, 34);
+            this.mnuDBOpen.Text = "DB Open";
+            this.mnuDBOpen.Click += new System.EventHandler(this.mnuDBOpen_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabel1,
+            this.StatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 468);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(723, 32);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatusLabel1
+            // 
+            this.StatusLabel1.ForeColor = System.Drawing.Color.Black;
+            this.StatusLabel1.Name = "StatusLabel1";
+            this.StatusLabel1.Size = new System.Drawing.Size(183, 25);
+            this.StatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // StatusLabel2
+            // 
+            this.StatusLabel2.Name = "StatusLabel2";
+            this.StatusLabel2.Size = new System.Drawing.Size(0, 25);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(859, 573);
+            this.ClientSize = new System.Drawing.Size(723, 500);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -464,8 +654,16 @@
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.PopupMenu2.ResumeLayout(false);
+            this.PopupMenu1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.PopupMenu3.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,6 +708,24 @@
         private System.Windows.Forms.ToolStripMenuItem 출력창설정ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuTbSet21;
         private System.Windows.Forms.ToolStripMenuItem mnuTbSet22;
+        private System.Windows.Forms.ContextMenuStrip PopupMenu1;
+        private System.Windows.Forms.ToolStripMenuItem 현재창을출력창으로1ToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip PopupMenu2;
+        private System.Windows.Forms.ToolStripMenuItem 현재창을출력창으로2ToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnGridCmd;
+        private System.Windows.Forms.TextBox tbGridCmd;
+        private System.Windows.Forms.ContextMenuStrip PopupMenu3;
+        private System.Windows.Forms.ToolStripMenuItem mnuAddRow;
+        private System.Windows.Forms.Button btnExecSql;
+        private System.Windows.Forms.TextBox tbSql;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dBFileSelect;
+        private System.Windows.Forms.ToolStripMenuItem mnuDBOpen;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel2;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,10 @@ namespace WinApp2
         [DllImport("kernel32.dll")]
         private static extern int WritePrivateProfileString(string Section, string key, string val, string path);
 
+        SqlConnection sConn = new SqlConnection();
+        SqlCommand sCmd = new SqlCommand();
+//        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kosta\source\repos\MyTable.mdf;Integrated Security=True;Connect Timeout=30";
+        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\temp;Integrated Security=True;Connect Timeout=30";
         public string GetToken(int n, string str, string sep = ",") // ","
         {
             int i, j, k;  // local index
@@ -242,6 +247,104 @@ namespace WinApp2
                 mnuTbSet22.Checked = true;
                 rbText22.Checked = true;
            }
+        }
+
+        private void mnuSelect2_Click(object sender, EventArgs e)
+        {
+                tbOut = tbTest22;
+                rbText22.Checked = true;
+        }
+
+        private void mnuSelect1_Click(object sender, EventArgs e)
+        {
+                tbOut = tbTest21;
+                rbText21.Checked = true;
+        }
+
+        // Command 체계 :
+        // "컬럼 명칭"  :   신규 컬럼 생성
+        // "1,2,'field_value'"  :  해당 CELL 에 field_value 입력 - (1,2)
+        private void btnGridCmd_Click(object sender, EventArgs e)
+        {   // tbGridCmd 에 입력된 text로 Column 생성
+            string str = tbGridCmd.Text;
+
+            try
+            {
+                if(str != "")   // 입력 문자열이 공백이 아니면...
+                {
+                    if(str.IndexOf(",") == -1)  //  ","가 없으면 컬럼 생성
+                    {
+                        dataGridView1.Columns.Add(str, str);
+                        tbGridCmd.Text = "";
+                    }
+                    else // 해당 Cell 이 지정된 값으로 변환
+                    {   // sample data : [1,2,value_12]
+                        int col = int.Parse(GetToken(0,str)); // col = 1
+                        int row = int.Parse(GetToken(1,str)); // row = 2
+                        dataGridView1.Rows[row].Cells[col].Value = GetToken(2, str);
+                    }
+                }
+            }
+            catch(Exception e1)
+            {
+
+            }
+        }
+
+        private void mnuAddRow_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add();
+        }
+
+        private void mnuDBOpen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sConn.ConnectionString = connString;
+                sConn.Open();
+                sCmd.Connection = sConn;
+                StatusLabel1.BackColor = Color.Green;
+                StatusLabel1.Text = "DB opened success";
+            }
+            catch(Exception e1)
+            {
+                StatusLabel1.BackColor = Color.Red;
+                StatusLabel1.Text = "DB open Failed!";
+            }
+        }
+
+        private void btnExecSql_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sSql = tbSql.Text;
+                sCmd.CommandText = sSql;
+
+                sCmd.ExecuteNonQuery(); // return 값이 없는 쿼리문 (ex) insert/update/delete
+                                        //            sCmd.ExecuteReader();
+                StatusLabel2.BackColor = Color.Blue;
+                StatusLabel2.Text = "Success";
+
+            }
+            catch (Exception e1)
+            {
+                StatusLabel2.BackColor = Color.Red;
+                StatusLabel2.Text = "Command Fail!";
+            }
+        }
+
+        private void dBFileSelect_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {   // AttachDbFilename=C:\Users\kosta\source\repos\MyTable.mdf
+                string fPath = openFileDialog1.FileName; // full path
+                string s1 = GetToken(0, connString, ";"); // connString 의 첫번째 필드.
+                string s2 = $"AttachDbFilename={fPath}";
+                string s3 = GetToken(2, connString, ";"); // connString 의 세번째 필드.
+                string s4 = GetToken(3, connString, ";"); // connString 의 네번째 필드.
+
+                connString = s1 + s2 + s3 + s4;
+            }
         }
 
         private void btnFileOpen_Click(object sender, EventArgs e)
