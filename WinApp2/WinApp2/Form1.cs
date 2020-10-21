@@ -22,8 +22,8 @@ namespace WinApp2
 
         SqlConnection sConn = new SqlConnection();
         SqlCommand sCmd = new SqlCommand();
-//        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kosta\source\repos\MyTable.mdf;Integrated Security=True;Connect Timeout=30";
-        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\temp;Integrated Security=True;Connect Timeout=30";
+        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kosta\source\repos\MyTable.mdf;Integrated Security=True;Connect Timeout=30";
+//        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\temp;Integrated Security=True;Connect Timeout=30";
         public string GetToken(int n, string str, string sep = ",") // ","
         {
             int i, j, k;  // local index
@@ -290,12 +290,65 @@ namespace WinApp2
 
             }
         }
+        // 함수 일반화 #5
+        // 함수명 : int RunSql(string sql)
+        //   인수 : string sql : 실행할 SQL 문
+        //   리턴 : -1 오류, 1 or 0 정상종료
+        //   기능 : SQL 문을 sCmd 오브젝트를 이용하여 수행하고
+        //         결과값이 있을 경우 (Select) Grid 에 나타내고
+        //         하단의 statusBar에 수행 결과를 표시
+        public int RunSql(string sSql)
+        {
+            try
+            {
+                sCmd.CommandText = sSql;
+                int i, j, k;
+                // "select....   Select ...
+                string s1 = GetToken(0, sSql, " ").ToUpper();  // "SELECT FCODE,FNAME FROM FACILITY"
+                if (s1 != "SELECT")
+                    sCmd.ExecuteNonQuery(); // return 값이 없는 쿼리문 (ex) insert/update/delete
+                else     //  쿼리문이 Select 인 경우
+                {
+                    SqlDataReader sr = sCmd.ExecuteReader();    // select 문 처리결과 수신
+
+                    dataGridView1.Columns.Clear();
+                    dataGridView1.Rows.Clear();
+
+                    for (i = 0; i < sr.FieldCount; i++)
+                    {
+                        dataGridView1.Columns.Add(sr.GetName(i), sr.GetName(i));
+                    }
+                    for (i = 0; sr.Read(); i++)  // 처리할 데이터가 있으면 1라인씩 처리
+                    {
+                        if (dataGridView1.RowCount < i + 2) dataGridView1.Rows.Add();
+                        for (j = 0; j < sr.FieldCount; j++)
+                        {
+                            object o2 = sr.GetValue(j);
+                            string buf = $"{o2}";
+                            dataGridView1.Rows[i].Cells[j].Value = buf;
+                            //dataGridView1.Rows[i].Cells[j].Value = $"{sr.GetValue(j)}";
+                        }
+                    }
+                    sr.Close();
+                }
+                StatusLabel2.BackColor = Color.Blue;
+                StatusLabel2.Text = "Success";
+            }
+            catch (Exception e1)
+            {
+                StatusLabel2.BackColor = Color.Red;
+                StatusLabel2.Text = " Fail!";
+                StatusLabel3.Text = e1.Message;
+            }
+
+            return 0;
+        }
 
         private void mnuAddRow_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add();
         }
-
+        int DbStatus = 0;   // DB connection status
         private void mnuDBOpen_Click(object sender, EventArgs e)
         {
             try
@@ -305,6 +358,7 @@ namespace WinApp2
                 sCmd.Connection = sConn;
                 StatusLabel1.BackColor = Color.Green;
                 StatusLabel1.Text = "DB opened success";
+                DbStatus = 1;   // DB가 정상적으로 Open
             }
             catch(Exception e1)
             {
@@ -315,36 +369,57 @@ namespace WinApp2
 
         private void btnExecSql_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string sSql = tbSql.Text;
-                sCmd.CommandText = sSql;
-
-                sCmd.ExecuteNonQuery(); // return 값이 없는 쿼리문 (ex) insert/update/delete
-                                        //            sCmd.ExecuteReader();
-                StatusLabel2.BackColor = Color.Blue;
-                StatusLabel2.Text = "Success";
-
-            }
-            catch (Exception e1)
-            {
-                StatusLabel2.BackColor = Color.Red;
-                StatusLabel2.Text = "Command Fail!";
-            }
+            RunSql(tbSql.Text);
         }
 
-        private void dBFileSelect_Click(object sender, EventArgs e)
+        private void mnudBFileSelect_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            FileDialog1.OverwritePrompt = false;
+            if (FileDialog1.ShowDialog() == DialogResult.OK)
             {   // AttachDbFilename=C:\Users\kosta\source\repos\MyTable.mdf
-                string fPath = openFileDialog1.FileName; // full path
+                string fPath = FileDialog1.FileName; // full path
                 string s1 = GetToken(0, connString, ";"); // connString 의 첫번째 필드.
                 string s2 = $"AttachDbFilename={fPath}";
                 string s3 = GetToken(2, connString, ";"); // connString 의 세번째 필드.
                 string s4 = GetToken(3, connString, ";"); // connString 의 네번째 필드.
 
-                connString = s1 + s2 + s3 + s4;
+                //connString = s1 + ";" + s2 + ";" + s3 + ";" + s4;   // 구분자 직접 삽입
+                connString = $"{s1};{s2};{s3};{s4}";    // 보간문자열 사용
             }
+        }
+
+        private void mnucellUpdate_Click(object sender, EventArgs e)
+        {
+            //int x = dataGridView1.SelectedCells[0].ColumnIndex;
+            //int y = dataGridView1.SelectedCells[0].RowIndex;
+            int x = dataGridView1.ColumnCount;
+            int y = dataGridView1.RowCount;
+            int i, j, k;
+
+            for(i=0;i<y;i++) // Row index
+            {
+                for(j=0;j<x;j++)  // Column index
+                {
+                    if(dataGridView1.Rows[i].Cells[j].ToolTipText == ".")
+                    {
+                        string s1 = dataGridView1.Columns[j].HeaderText;    // field 명
+                        string s2 = dataGridView1.Rows[i].Cells[j].Value.ToString(); // 수정된 데이터
+                        string s3 = (string)dataGridView1.Rows[i].Cells[0].Value;    // id 번호
+                        string s4 = $"update facility set {s1}='{s2}' where id={s3}";
+                        RunSql(s4);
+
+                        dataGridView1.Rows[i].Cells[j].ToolTipText = "";
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {   // Kbd 입력이 발생했을 때
+            int x = dataGridView1.SelectedCells[0].ColumnIndex;
+            int y = dataGridView1.SelectedCells[0].RowIndex;
+
+            dataGridView1.SelectedCells[0].ToolTipText = ".";
         }
 
         private void btnFileOpen_Click(object sender, EventArgs e)
@@ -367,6 +442,7 @@ namespace WinApp2
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if(DbStatus == 1) sConn.Close();
             WritePrivateProfileString("Form2 ComboBox Set", "cn1", $"{cn1}", sPath);
             WritePrivateProfileString("Form2 ComboBox Set", "cn2", $"{cn2}", sPath);
             WritePrivateProfileString("Form2 ComboBox Set", "cn3", $"{cn3}", sPath);

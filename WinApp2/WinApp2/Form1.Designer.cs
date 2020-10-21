@@ -1,4 +1,6 @@
-﻿namespace WinApp2
+﻿using System.Windows.Forms;
+
+namespace WinApp2
 {
     partial class Form1
     {
@@ -59,7 +61,13 @@
             this.PopupMenu1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.현재창을출력창으로1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnExecSql = new System.Windows.Forms.Button();
+            this.tbSql = new System.Windows.Forms.TextBox();
+            this.btnGridCmd = new System.Windows.Forms.Button();
+            this.tbGridCmd = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PopupMenu3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAddRow = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,18 +80,16 @@
             this.출력창설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTbSet21 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTbSet22 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbGridCmd = new System.Windows.Forms.TextBox();
-            this.btnGridCmd = new System.Windows.Forms.Button();
-            this.PopupMenu3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuAddRow = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbSql = new System.Windows.Forms.TextBox();
-            this.btnExecSql = new System.Windows.Forms.Button();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dBFileSelect = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnudBFileSelect = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDBOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.mnucellUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,8 +99,8 @@
             this.PopupMenu1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.PopupMenu3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,10 +124,10 @@
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("궁서", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(637, 399);
+            this.tabPage1.Size = new System.Drawing.Size(715, 399);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "문자열 테스트";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -283,10 +289,10 @@
             this.tabPage2.Controls.Add(this.btnForm2Test);
             this.tabPage2.Controls.Add(this.tbTest22);
             this.tabPage2.Controls.Add(this.tbTest21);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(637, 399);
+            this.tabPage2.Size = new System.Drawing.Size(715, 399);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "배열테스트";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -362,7 +368,7 @@
             this.tbTest22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbTest22.ContextMenuStrip = this.PopupMenu2;
-            this.tbTest22.Location = new System.Drawing.Point(242, 98);
+            this.tbTest22.Location = new System.Drawing.Point(320, 98);
             this.tbTest22.Multiline = true;
             this.tbTest22.Name = "tbTest22";
             this.tbTest22.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -427,12 +433,57 @@
             this.tabPage3.Text = "Data Grid";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnExecSql
+            // 
+            this.btnExecSql.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExecSql.Location = new System.Drawing.Point(653, 3);
+            this.btnExecSql.Name = "btnExecSql";
+            this.btnExecSql.Size = new System.Drawing.Size(59, 64);
+            this.btnExecSql.TabIndex = 4;
+            this.btnExecSql.Text = "Go";
+            this.btnExecSql.UseVisualStyleBackColor = true;
+            this.btnExecSql.Click += new System.EventHandler(this.btnExecSql_Click);
+            // 
+            // tbSql
+            // 
+            this.tbSql.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSql.Location = new System.Drawing.Point(18, 3);
+            this.tbSql.Multiline = true;
+            this.tbSql.Name = "tbSql";
+            this.tbSql.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbSql.Size = new System.Drawing.Size(629, 64);
+            this.tbSql.TabIndex = 3;
+            // 
+            // btnGridCmd
+            // 
+            this.btnGridCmd.Enabled = false;
+            this.btnGridCmd.Location = new System.Drawing.Point(3, 38);
+            this.btnGridCmd.Name = "btnGridCmd";
+            this.btnGridCmd.Size = new System.Drawing.Size(111, 29);
+            this.btnGridCmd.TabIndex = 2;
+            this.btnGridCmd.Text = "Grid Control";
+            this.btnGridCmd.UseVisualStyleBackColor = true;
+            this.btnGridCmd.Visible = false;
+            this.btnGridCmd.Click += new System.EventHandler(this.btnGridCmd_Click);
+            // 
+            // tbGridCmd
+            // 
+            this.tbGridCmd.Enabled = false;
+            this.tbGridCmd.Location = new System.Drawing.Point(3, 3);
+            this.tbGridCmd.Name = "tbGridCmd";
+            this.tbGridCmd.Size = new System.Drawing.Size(111, 29);
+            this.tbGridCmd.TabIndex = 1;
+            this.tbGridCmd.Visible = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
             this.dataGridView1.ContextMenuStrip = this.PopupMenu3;
             this.dataGridView1.Location = new System.Drawing.Point(3, 83);
             this.dataGridView1.Name = "dataGridView1";
@@ -440,6 +491,23 @@
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.Size = new System.Drawing.Size(709, 313);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
+            // 
+            // PopupMenu3
+            // 
+            this.PopupMenu3.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.PopupMenu3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddRow,
+            this.mnucellUpdate});
+            this.PopupMenu3.Name = "PopupMenu3";
+            this.PopupMenu3.Size = new System.Drawing.Size(177, 68);
+            // 
+            // mnuAddRow
+            // 
+            this.mnuAddRow.Name = "mnuAddRow";
+            this.mnuAddRow.Size = new System.Drawing.Size(176, 32);
+            this.mnuAddRow.Text = "행 추가";
+            this.mnuAddRow.Click += new System.EventHandler(this.mnuAddRow_Click);
             // 
             // openFileDialog1
             // 
@@ -532,75 +600,21 @@
             this.mnuTbSet22.Text = "Text 창 #2";
             this.mnuTbSet22.Click += new System.EventHandler(this.mnuTbSet22_Click);
             // 
-            // tbGridCmd
-            // 
-            this.tbGridCmd.Location = new System.Drawing.Point(3, 3);
-            this.tbGridCmd.Name = "tbGridCmd";
-            this.tbGridCmd.Size = new System.Drawing.Size(111, 29);
-            this.tbGridCmd.TabIndex = 1;
-            // 
-            // btnGridCmd
-            // 
-            this.btnGridCmd.Location = new System.Drawing.Point(3, 38);
-            this.btnGridCmd.Name = "btnGridCmd";
-            this.btnGridCmd.Size = new System.Drawing.Size(111, 29);
-            this.btnGridCmd.TabIndex = 2;
-            this.btnGridCmd.Text = "Grid Control";
-            this.btnGridCmd.UseVisualStyleBackColor = true;
-            this.btnGridCmd.Click += new System.EventHandler(this.btnGridCmd_Click);
-            // 
-            // PopupMenu3
-            // 
-            this.PopupMenu3.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.PopupMenu3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAddRow});
-            this.PopupMenu3.Name = "PopupMenu3";
-            this.PopupMenu3.Size = new System.Drawing.Size(145, 36);
-            // 
-            // mnuAddRow
-            // 
-            this.mnuAddRow.Name = "mnuAddRow";
-            this.mnuAddRow.Size = new System.Drawing.Size(144, 32);
-            this.mnuAddRow.Text = "행 추가";
-            this.mnuAddRow.Click += new System.EventHandler(this.mnuAddRow_Click);
-            // 
-            // tbSql
-            // 
-            this.tbSql.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSql.Location = new System.Drawing.Point(120, 3);
-            this.tbSql.Multiline = true;
-            this.tbSql.Name = "tbSql";
-            this.tbSql.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbSql.Size = new System.Drawing.Size(527, 64);
-            this.tbSql.TabIndex = 3;
-            // 
-            // btnExecSql
-            // 
-            this.btnExecSql.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExecSql.Location = new System.Drawing.Point(653, 3);
-            this.btnExecSql.Name = "btnExecSql";
-            this.btnExecSql.Size = new System.Drawing.Size(59, 64);
-            this.btnExecSql.TabIndex = 4;
-            this.btnExecSql.Text = "Go";
-            this.btnExecSql.UseVisualStyleBackColor = true;
-            this.btnExecSql.Click += new System.EventHandler(this.btnExecSql_Click);
-            // 
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dBFileSelect,
+            this.mnudBFileSelect,
             this.mnuDBOpen});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
             this.databaseToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
-            // dBFileSelect
+            // mnudBFileSelect
             // 
-            this.dBFileSelect.Name = "dBFileSelect";
-            this.dBFileSelect.Size = new System.Drawing.Size(270, 34);
-            this.dBFileSelect.Text = "DB File Select";
-            this.dBFileSelect.Click += new System.EventHandler(this.dBFileSelect_Click);
+            this.mnudBFileSelect.Name = "mnudBFileSelect";
+            this.mnudBFileSelect.Size = new System.Drawing.Size(270, 34);
+            this.mnudBFileSelect.Text = "DB File Select";
+            this.mnudBFileSelect.Click += new System.EventHandler(this.mnudBFileSelect_Click);
             // 
             // mnuDBOpen
             // 
@@ -614,7 +628,8 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel1,
-            this.StatusLabel2});
+            this.StatusLabel2,
+            this.StatusLabel3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 468);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(723, 32);
@@ -632,6 +647,26 @@
             // 
             this.StatusLabel2.Name = "StatusLabel2";
             this.StatusLabel2.Size = new System.Drawing.Size(0, 25);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // mnucellUpdate
+            // 
+            this.mnucellUpdate.Name = "mnucellUpdate";
+            this.mnucellUpdate.Size = new System.Drawing.Size(176, 32);
+            this.mnucellUpdate.Text = "Cell update";
+            this.mnucellUpdate.Click += new System.EventHandler(this.mnucellUpdate_Click);
+            // 
+            // StatusLabel3
+            // 
+            this.StatusLabel3.Name = "StatusLabel3";
+            this.StatusLabel3.Size = new System.Drawing.Size(19, 25);
+            this.StatusLabel3.Text = "-";
             // 
             // Form1
             // 
@@ -659,9 +694,9 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.PopupMenu3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.PopupMenu3.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -721,11 +756,15 @@
         private System.Windows.Forms.Button btnExecSql;
         private System.Windows.Forms.TextBox tbSql;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dBFileSelect;
+        private System.Windows.Forms.ToolStripMenuItem mnudBFileSelect;
         private System.Windows.Forms.ToolStripMenuItem mnuDBOpen;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel2;
+        private DataGridViewTextBoxColumn Column1;
+        private SaveFileDialog FileDialog1;
+        private ToolStripMenuItem mnucellUpdate;
+        private ToolStripStatusLabel StatusLabel3;
     }
 }
 
