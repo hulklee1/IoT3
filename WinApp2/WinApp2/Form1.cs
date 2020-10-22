@@ -356,6 +356,14 @@ namespace WinApp2
                 sConn.ConnectionString = connString;
                 sConn.Open();
                 sCmd.Connection = sConn;
+
+                DataTable dt = sConn.GetSchema("Tables");
+                for(int i=0;i<dt.Rows.Count;i++)
+                {
+                    string sTablename = dt.Rows[i].ItemArray[2].ToString();
+                    cbTable.Items.Add(sTablename);
+                }      
+
                 StatusLabel1.BackColor = Color.Green;
                 StatusLabel1.Text = "DB opened success";
                 DbStatus = 1;   // DB가 정상적으로 Open
@@ -369,15 +377,18 @@ namespace WinApp2
 
         private void btnExecSql_Click(object sender, EventArgs e)
         {
-            RunSql(tbSql.Text);
+            string sql = tbSql.SelectedText;
+            if(sql != "") RunSql(sql);
+            else RunSql(tbSql.Text);
+            tbSql.Focus();
         }
 
         private void mnudBFileSelect_Click(object sender, EventArgs e)
         {
-            FileDialog1.OverwritePrompt = false;
-            if (FileDialog1.ShowDialog() == DialogResult.OK)
+            openFileDialog1.ValidateNames = false;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {   // AttachDbFilename=C:\Users\kosta\source\repos\MyTable.mdf
-                string fPath = FileDialog1.FileName; // full path
+                string fPath = openFileDialog1.FileName; // full path
                 string s1 = GetToken(0, connString, ";"); // connString 의 첫번째 필드.
                 string s2 = $"AttachDbFilename={fPath}";
                 string s3 = GetToken(2, connString, ";"); // connString 의 세번째 필드.
@@ -385,6 +396,8 @@ namespace WinApp2
 
                 //connString = s1 + ";" + s2 + ";" + s3 + ";" + s4;   // 구분자 직접 삽입
                 connString = $"{s1};{s2};{s3};{s4}";    // 보간문자열 사용
+                string s5 = openFileDialog1.SafeFileName;
+                tbDatabase.Text = s5;
             }
         }
 
@@ -405,7 +418,7 @@ namespace WinApp2
                         string s1 = dataGridView1.Columns[j].HeaderText;    // field 명
                         string s2 = dataGridView1.Rows[i].Cells[j].Value.ToString(); // 수정된 데이터
                         string s3 = (string)dataGridView1.Rows[i].Cells[0].Value;    // id 번호
-                        string s4 = $"update facility set {s1}='{s2}' where id={s3}";
+                        string s4 = $"update {cbTable.Text} set {s1}='{s2}' where id={s3}";
                         RunSql(s4);
 
                         dataGridView1.Rows[i].Cells[j].ToolTipText = "";
@@ -422,6 +435,40 @@ namespace WinApp2
             dataGridView1.SelectedCells[0].ToolTipText = ".";
         }
 
+        private void mnuDBClose_Click(object sender, EventArgs e)
+        {
+            sConn.Close();
+            tbDatabase.Text = "";
+            cbTable.Items.Clear();
+            cbTable.Text = "";
+            StatusLabel1.Text = "DB Closed.";
+        }
+
+        private void cbTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = $"Select * from {cbTable.Text}";
+            RunSql(sql);
+        }
+
+        private void mnuCSVImport_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fPath = openFileDialog1.FileName; // full path
+
+                StreamReader sr = new StreamReader(fPath);
+                for(string str;(str=sr.ReadLine()) != null; )
+                {
+                    for (int j = 0; ; j++) ;
+
+                }
+                //string s1 = sr.ReadLine(); // 1 Line Read : if(EOF) null
+
+                sr.Close();
+
+            }
+        }
+
         private void btnFileOpen_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -435,6 +482,8 @@ namespace WinApp2
                 char[] buf = new char[fSize];
                 StreamReader sr = new StreamReader(fPath);
                 sr.Read(buf, 0, fSize);
+                //string s1 = sr.ReadLine(); // 1 Line Read : if(EOF) null
+
                 tbTest21.Text = new string(buf);
                 sr.Close();
             }
