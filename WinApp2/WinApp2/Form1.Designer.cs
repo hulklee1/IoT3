@@ -95,6 +95,14 @@ namespace WinApp2
             this.StatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuDBClose = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCSVImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDBSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelTable = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuDelRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDBInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -544,21 +552,26 @@ namespace WinApp2
             this.PopupMenu3.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.PopupMenu3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAddRow,
-            this.mnucellUpdate});
+            this.mnuDelRecord,
+            this.toolStripMenuItem5,
+            this.mnucellUpdate,
+            this.mnuDBInsert,
+            this.toolStripMenuItem6,
+            this.mnuDBSave});
             this.PopupMenu3.Name = "PopupMenu3";
-            this.PopupMenu3.Size = new System.Drawing.Size(158, 52);
+            this.PopupMenu3.Size = new System.Drawing.Size(211, 164);
             // 
             // mnuAddRow
             // 
             this.mnuAddRow.Name = "mnuAddRow";
-            this.mnuAddRow.Size = new System.Drawing.Size(157, 24);
+            this.mnuAddRow.Size = new System.Drawing.Size(210, 24);
             this.mnuAddRow.Text = "행 추가";
             this.mnuAddRow.Click += new System.EventHandler(this.mnuAddRow_Click);
             // 
             // mnucellUpdate
             // 
             this.mnucellUpdate.Name = "mnucellUpdate";
-            this.mnucellUpdate.Size = new System.Drawing.Size(157, 24);
+            this.mnucellUpdate.Size = new System.Drawing.Size(210, 24);
             this.mnucellUpdate.Text = "Cell update";
             this.mnucellUpdate.Click += new System.EventHandler(this.mnucellUpdate_Click);
             // 
@@ -680,7 +693,10 @@ namespace WinApp2
             this.mnudBFileSelect,
             this.mnuDBOpen,
             this.mnuDBClose,
-            this.mnuCSVImport});
+            this.toolStripMenuItem3,
+            this.mnuCSVImport,
+            this.toolStripMenuItem4,
+            this.mnuDelTable});
             this.mnuImportCSV.Name = "mnuImportCSV";
             this.mnuImportCSV.Size = new System.Drawing.Size(86, 24);
             this.mnuImportCSV.Text = "Database";
@@ -743,6 +759,53 @@ namespace WinApp2
             this.mnuCSVImport.Size = new System.Drawing.Size(282, 26);
             this.mnuCSVImport.Text = "Migration - Import xls (csv) ";
             this.mnuCSVImport.Click += new System.EventHandler(this.mnuCSVImport_Click);
+            // 
+            // mnuDBSave
+            // 
+            this.mnuDBSave.Name = "mnuDBSave";
+            this.mnuDBSave.Size = new System.Drawing.Size(210, 24);
+            this.mnuDBSave.Text = "DB에 저장";
+            this.mnuDBSave.Click += new System.EventHandler(this.mnuDBSave_Click);
+            // 
+            // mnuDelTable
+            // 
+            this.mnuDelTable.Name = "mnuDelTable";
+            this.mnuDelTable.Size = new System.Drawing.Size(282, 26);
+            this.mnuDelTable.Text = "테이블 삭제";
+            this.mnuDelTable.Click += new System.EventHandler(this.mnuDelTable_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(279, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(279, 6);
+            // 
+            // mnuDelRecord
+            // 
+            this.mnuDelRecord.Name = "mnuDelRecord";
+            this.mnuDelRecord.Size = new System.Drawing.Size(210, 24);
+            this.mnuDelRecord.Text = "행 삭제";
+            this.mnuDelRecord.Click += new System.EventHandler(this.mnuDelRecord_Click);
+            // 
+            // mnuDBInsert
+            // 
+            this.mnuDBInsert.Name = "mnuDBInsert";
+            this.mnuDBInsert.Size = new System.Drawing.Size(210, 24);
+            this.mnuDBInsert.Text = "DB Insert";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(207, 6);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(207, 6);
             // 
             // Form1
             // 
@@ -851,6 +914,14 @@ namespace WinApp2
         private TextBox tbDatabase;
         private ToolStripMenuItem mnuDBClose;
         private ToolStripMenuItem mnuCSVImport;
+        private ToolStripMenuItem mnuDBSave;
+        private ToolStripSeparator toolStripMenuItem3;
+        private ToolStripSeparator toolStripMenuItem4;
+        private ToolStripMenuItem mnuDelTable;
+        private ToolStripMenuItem mnuDelRecord;
+        private ToolStripSeparator toolStripMenuItem5;
+        private ToolStripMenuItem mnuDBInsert;
+        private ToolStripSeparator toolStripMenuItem6;
     }
 }
 

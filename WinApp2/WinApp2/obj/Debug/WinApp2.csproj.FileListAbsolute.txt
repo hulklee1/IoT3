@@ -19,3 +19,4 @@ C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.csproj.CoreCo
 C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.exe
 C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.pdb
 C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.Form2.resources
+C:\Users\kosta\Source\Repos\IoT3\WinApp2\WinApp2\obj\Debug\WinApp2.frmGetTableName.resources

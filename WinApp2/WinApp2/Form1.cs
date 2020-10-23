@@ -349,6 +349,22 @@ namespace WinApp2
             dataGridView1.Rows.Add();
         }
         int DbStatus = 0;   // DB connection status
+        // 함수명 GetDBTableNames()
+        // 인수 : 없음.
+        // return : 없음
+        //  기능 : 현재 Open되어 있는 DB의 Table 명을 cbTable 콤보박스에 넣는다.
+        public void GetDBTableNames()
+        {
+            cbTable.Items.Clear();
+
+            DataTable dt = sConn.GetSchema("Tables");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string sTablename = dt.Rows[i].ItemArray[2].ToString();
+                cbTable.Items.Add(sTablename);
+            }
+        }
+
         private void mnuDBOpen_Click(object sender, EventArgs e)
         {
             try
@@ -357,12 +373,7 @@ namespace WinApp2
                 sConn.Open();
                 sCmd.Connection = sConn;
 
-                DataTable dt = sConn.GetSchema("Tables");
-                for(int i=0;i<dt.Rows.Count;i++)
-                {
-                    string sTablename = dt.Rows[i].ItemArray[2].ToString();
-                    cbTable.Items.Add(sTablename);
-                }      
+                GetDBTableNames();
 
                 StatusLabel1.BackColor = Color.Green;
                 StatusLabel1.Text = "DB opened success";
@@ -452,21 +463,143 @@ namespace WinApp2
 
         private void mnuCSVImport_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                string fPath = openFileDialog1.FileName; // full path
-
-                StreamReader sr = new StreamReader(fPath);
-                for(string str;(str=sr.ReadLine()) != null; )
+                openFileDialog1.ValidateNames = false;
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    for (int j = 0; ; j++) ;
+                    string fPath = openFileDialog1.FileName; // full path
 
+                    StreamReader sr = new StreamReader(fPath);
+
+                    // sr.Read(buf) : buf size 만큼의 데이터를 한번에 READ
+                    string str;
+                    int i, j, k;
+
+                    dataGridView1.Columns.Clear();
+                    dataGridView1.Rows.Clear();
+
+                    int nCol = 0;
+                    str = sr.ReadLine(); // Header Line : dataGrid에 헤더컬럼 추가
+                    for (i = 0; ;i++)
+                    {
+                        string c1 = GetToken(i, str);
+                        if (c1 == "")
+                        {
+                            nCol = i; break;
+                        }
+                        dataGridView1.Columns.Add(c1, c1);
+                    }
+
+                    for(i=0;;i++)
+                    {
+                        str = sr.ReadLine();
+                        if (str == null) break;
+                        dataGridView1.Rows.Add();
+                        for (j = 0; j<nCol; j++)
+                        {
+                            string c1 = GetToken(j, str);
+                            dataGridView1.Rows[i].Cells[j].Value = c1;
+                        }
+                    }
+                    StatusLabel2.BackColor = Color.Blue;
+                    StatusLabel2.Text = "Success";
+
+                    sr.Close();
                 }
-                //string s1 = sr.ReadLine(); // 1 Line Read : if(EOF) null
-
-                sr.Close();
 
             }
+            catch(Exception e1)
+            {
+
+            }
+        }
+        // 0. DB 파일(.mdf) 은 현재 Open 되어있는 DB 사용
+        // 1. 입력창을 열어서 신규 Table 이름 입력 - frmGetTableName
+        // 2. 현재 Grid의 헤더 컬럼을 필드이름으로 하는 Table을 Creation
+        // 3. 현재 Grid의 각 Cell 의 data를 DB에 INSERT
+        private void mnuDBSave_Click(object sender, EventArgs e)
+        {
+            // 1. 입력창을 열어서 신규 Table 이름 입력 - frmGetTableName
+            frmGetTableName dlg = new frmGetTableName();
+            dlg.ShowDialog();
+            string sName = dlg.tbTableName.Text;
+
+            // 2. 현재 Grid의 헤더 컬럼을 필드이름으로 하는 Table을 Creation
+            // Create table [테이블명] (
+            //      [필드명:컬럼명] [필드속성:nchar(20)],
+            //          ...
+            // )    =====> SQL 실행
+            int i, j, k;
+            int nCol = dataGridView1.Columns.Count;
+            int nRow = dataGridView1.Rows.Count;
+            string sCreate = $"CREATE TABLE {sName} (";
+            for(i = 0; i < nCol; i++)
+            {
+                string c1 = dataGridView1.Columns[i].HeaderText;
+                sCreate += $"{c1} nchar(20) ";
+                if(i < nCol - 1) sCreate += ",";
+            }
+            sCreate += ")";
+            RunSql(sCreate);
+
+            //cbTable.Items.Add(sName);
+
+            // 3. 현재 Grid의 각 Cell 의 data를 DB에 INSERT
+            // INSERT into [테이블명] Values 
+            //      (data1, ...,datan),
+            //          ...     <---- ',' 주의
+            //     =====> SQL 실행
+            string sInsert = $"INSERT into {sName} values ";
+            for (i = 0; i < nRow-1; i++)
+            {
+                string c1 = "(";
+                for(j = 0;j < nCol; j++)
+                {   // ( 'col1', 'col2', 'col3',...),
+                    string c2 = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    c1 += $"'{c2}'";
+                    if (j < nCol - 1) c1 += ",";
+                }
+                c1 += ")";
+                sInsert += c1;
+                if (i < nRow - 2) sInsert += ",";
+            }
+            RunSql(sInsert);
+            GetDBTableNames();
+        }
+
+        private void mnuDelTable_Click(object sender, EventArgs e)
+        {   // 테이블 삭제 메뉴
+            string sTbl = cbTable.Text;
+            if(sTbl != "")
+            {
+                RunSql($"Drop table {sTbl}");
+                StatusLabel2.Text = $"table {sTbl} Dropped.";
+                GetDBTableNames();
+                return;
+            }
+            StatusLabel2.Text = "테이블 삭제 실패.";
+        }
+
+        private void mnuDelRecord_Click(object sender, EventArgs e)
+        {   // Grid 창에 있는 Table의 해당 레코드 삭제
+            // 현재 Grid에 있는 데이터가 첫번째 컬럼에 id 필드를 포함한 경우에만 동작
+            string sHdr = dataGridView1.Columns[0].HeaderText.ToLower();
+
+            if(sHdr == "id")
+            {
+                //int i = dataGridView1.SelectedRows[0].Index;
+                int x = dataGridView1.SelectedCells[0].ColumnIndex;
+                int y = dataGridView1.SelectedCells[0].RowIndex;
+                string sId = dataGridView1.Rows[y].Cells[0].Value.ToString();
+                string sTbl = cbTable.Text;
+
+                RunSql($"Delete {sTbl} where id={sId}");
+                StatusLabel2.Text = $"레코드 삭제 성공";
+                cbTable_SelectedIndexChanged(sender, e);
+                return;
+            }
+            StatusLabel2.Text = "레코드 삭제 실패.";
         }
 
         private void btnFileOpen_Click(object sender, EventArgs e)
