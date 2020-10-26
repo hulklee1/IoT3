@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -343,6 +344,15 @@ namespace WinApp2
 
             return 0;
         }
+        // RunDBData(string fieldname,string Table_name)
+        public string RunDBData(string Keyname, string Table_name)
+        {
+            string sql = $"Select sValue from {Table_name} where sKey='{Keyname}'";
+            sCmd.CommandText = sql;
+
+            string sRet = sCmd.ExecuteScalar().ToString();
+            return sRet;
+        }
 
         private void mnuAddRow_Click(object sender, EventArgs e)
         {
@@ -443,6 +453,9 @@ namespace WinApp2
             int x = dataGridView1.SelectedCells[0].ColumnIndex;
             int y = dataGridView1.SelectedCells[0].RowIndex;
 
+            // 만일 편집중인 셀이 신규 생성된 Row이면(.)  Insert 준비 (..)
+            if (dataGridView1.Rows[y].HeaderCell.Value.ToString() == ".")
+                dataGridView1.Rows[y].HeaderCell.Value = "..";
             dataGridView1.SelectedCells[0].ToolTipText = ".";
         }
 
@@ -553,21 +566,43 @@ namespace WinApp2
             string sInsert = $"INSERT into {sName} values ";
             for (i = 0; i < nRow-1; i++)
             {
-                string c1 = "(";
-                for(j = 0;j < nCol; j++)
-                {   // ( 'col1', 'col2', 'col3',...),
-                    string c2 = dataGridView1.Rows[i].Cells[j].Value.ToString();
-                    c1 += $"'{c2}'";
-                    if (j < nCol - 1) c1 += ",";
-                }
-                c1 += ")";
-                sInsert += c1;
-                if (i < nRow - 2) sInsert += ",";
+                //string c1 = "(";
+                //for(j = 0;j < nCol; j++)
+                //{   // ( 'col1', 'col2', 'col3',...),
+                //    string c2 = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                //    c1 += $"'{c2}'";
+                //    if (j < nCol - 1) c1 += ",";
+                //}
+                //c1 += ")";
+                //sInsert += c1;
+                //if (i < nRow - 2) sInsert += ",";
+                InsertRow(i);
             }
             RunSql(sInsert);
             GetDBTableNames();
         }
-
+        // 함수명 : InsertRow(int n,string[],string TABLE_NAME)
+        //  인수  : n - Insert할 Row의 Index
+        // 리턴값 : 없슴.
+        //  기능  : 지정된 Row의 모든 셀을 Table에 Insert
+        public void InsertRow(int n)
+        {
+            int nCol = dataGridView1.Columns.Count;
+            string sName = cbTable.Text;
+            string sInsert = $"INSERT into {sName} values ";
+            string c1 = "(";
+            for (int j = 0; j < nCol; j++)
+            {   // ( 'col1', 'col2', 'col3',...)
+                string c2 = "";
+                if(dataGridView1.Rows[n].Cells[j].Value != null)
+                    c2 = dataGridView1.Rows[n].Cells[j].Value.ToString();
+                c1 += $"'{c2}'";
+                if (j < nCol - 1) c1 += ",";
+            }
+            c1 += ")";
+            sInsert += c1;
+            RunSql(sInsert);
+        }
         private void mnuDelTable_Click(object sender, EventArgs e)
         {   // 테이블 삭제 메뉴
             string sTbl = cbTable.Text;
@@ -600,6 +635,30 @@ namespace WinApp2
                 return;
             }
             StatusLabel2.Text = "레코드 삭제 실패.";
+        }
+
+        private void mnuDBInsert_Click(object sender, EventArgs e)
+        {   // INSERT into [TABLE] valus (
+            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            {
+                if(dataGridView1.Rows[i].HeaderCell.Value.ToString() == "..")
+                {
+                    InsertRow(i);
+                    dataGridView1.Rows[i].HeaderCell.Value = "";
+                }
+            }
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {   // dataGrid의 Row가 새로 생성되었을 때...
+            int nRow = e.RowIndex;
+            dataGridView1.Rows[nRow].HeaderCell.Value = ".";  // 신규 Row flag
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string str = RunDBData(textBox1.Text, "MyConfig");
+            tbSql.Text += $" MyConfig test [{textBox1.Text}] : '{str}'\r\n";
         }
 
         private void btnFileOpen_Click(object sender, EventArgs e)

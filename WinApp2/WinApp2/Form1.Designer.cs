@@ -71,7 +71,12 @@ namespace WinApp2
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PopupMenu3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAddRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnucellUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDBInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuDBSave = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGridCmd = new System.Windows.Forms.Button();
             this.tbGridCmd = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -89,20 +94,17 @@ namespace WinApp2
             this.mnuImportCSV = new System.Windows.Forms.ToolStripMenuItem();
             this.mnudBFileSelect = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDBOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDBClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuCSVImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuDelTable = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mnuDBClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCSVImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDBSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDelTable = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuDelRecord = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDBInsert = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -141,10 +143,10 @@ namespace WinApp2
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("궁서", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(625, 414);
+            this.tabPage1.Size = new System.Drawing.Size(625, 410);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "문자열 테스트";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -170,7 +172,7 @@ namespace WinApp2
             this.label3.Font = new System.Drawing.Font("굴림", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(6, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 14);
+            this.label3.Size = new System.Drawing.Size(94, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Output Text";
             // 
@@ -179,7 +181,7 @@ namespace WinApp2
             this.tbTest13.Enabled = false;
             this.tbTest13.Location = new System.Drawing.Point(100, 126);
             this.tbTest13.Name = "tbTest13";
-            this.tbTest13.Size = new System.Drawing.Size(160, 23);
+            this.tbTest13.Size = new System.Drawing.Size(160, 26);
             this.tbTest13.TabIndex = 1;
             // 
             // label4
@@ -188,7 +190,7 @@ namespace WinApp2
             this.label4.Font = new System.Drawing.Font("굴림", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(8, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 14);
+            this.label4.Size = new System.Drawing.Size(80, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Input Text";
             // 
@@ -196,7 +198,7 @@ namespace WinApp2
             // 
             this.tbTest12.Location = new System.Drawing.Point(100, 45);
             this.tbTest12.Name = "tbTest12";
-            this.tbTest12.Size = new System.Drawing.Size(160, 23);
+            this.tbTest12.Size = new System.Drawing.Size(160, 26);
             this.tbTest12.TabIndex = 1;
             // 
             // btnTest12
@@ -215,7 +217,7 @@ namespace WinApp2
             this.cbTest11.FormattingEnabled = true;
             this.cbTest11.Location = new System.Drawing.Point(100, 86);
             this.cbTest11.Name = "cbTest11";
-            this.cbTest11.Size = new System.Drawing.Size(160, 21);
+            this.cbTest11.Size = new System.Drawing.Size(160, 24);
             this.cbTest11.TabIndex = 2;
             this.cbTest11.SelectedIndexChanged += new System.EventHandler(this.cbTest11_SelectedIndexChanged);
             // 
@@ -240,7 +242,7 @@ namespace WinApp2
             this.label2.Font = new System.Drawing.Font("굴림", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(8, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 14);
+            this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Input Text";
             // 
@@ -250,7 +252,7 @@ namespace WinApp2
             this.rbTest12.Font = new System.Drawing.Font("굴림", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.rbTest12.Location = new System.Drawing.Point(193, 27);
             this.rbTest12.Name = "rbTest12";
-            this.rbTest12.Size = new System.Drawing.Size(70, 18);
+            this.rbTest12.Size = new System.Drawing.Size(81, 20);
             this.rbTest12.TabIndex = 4;
             this.rbTest12.Text = "대문자";
             this.rbTest12.UseVisualStyleBackColor = true;
@@ -262,7 +264,7 @@ namespace WinApp2
             this.rbTest11.Font = new System.Drawing.Font("굴림", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.rbTest11.Location = new System.Drawing.Point(100, 27);
             this.rbTest11.Name = "rbTest11";
-            this.rbTest11.Size = new System.Drawing.Size(70, 18);
+            this.rbTest11.Size = new System.Drawing.Size(81, 20);
             this.rbTest11.TabIndex = 4;
             this.rbTest11.TabStop = true;
             this.rbTest11.Text = "소문자";
@@ -274,7 +276,7 @@ namespace WinApp2
             this.label1.Font = new System.Drawing.Font("궁서", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(8, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 15);
+            this.label1.Size = new System.Drawing.Size(29, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "...";
             // 
@@ -282,7 +284,7 @@ namespace WinApp2
             // 
             this.tbTest11.Location = new System.Drawing.Point(99, 71);
             this.tbTest11.Name = "tbTest11";
-            this.tbTest11.Size = new System.Drawing.Size(160, 23);
+            this.tbTest11.Size = new System.Drawing.Size(160, 26);
             this.tbTest11.TabIndex = 1;
             // 
             // btnTest11
@@ -306,10 +308,10 @@ namespace WinApp2
             this.tabPage2.Controls.Add(this.btnForm2Test);
             this.tabPage2.Controls.Add(this.tbTest22);
             this.tabPage2.Controls.Add(this.tbTest21);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(625, 414);
+            this.tabPage2.Size = new System.Drawing.Size(625, 410);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "배열테스트";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -320,7 +322,7 @@ namespace WinApp2
             this.rbText22.Checked = true;
             this.rbText22.Location = new System.Drawing.Point(456, 70);
             this.rbText22.Name = "rbText22";
-            this.rbText22.Size = new System.Drawing.Size(140, 23);
+            this.rbText22.Size = new System.Drawing.Size(165, 25);
             this.rbText22.TabIndex = 6;
             this.rbText22.TabStop = true;
             this.rbText22.Text = "Current Window2";
@@ -332,7 +334,7 @@ namespace WinApp2
             this.rbText21.AutoSize = true;
             this.rbText21.Location = new System.Drawing.Point(7, 70);
             this.rbText21.Name = "rbText21";
-            this.rbText21.Size = new System.Drawing.Size(140, 23);
+            this.rbText21.Size = new System.Drawing.Size(165, 25);
             this.rbText21.TabIndex = 6;
             this.rbText21.Text = "Current Window1";
             this.rbText21.UseVisualStyleBackColor = true;
@@ -345,7 +347,7 @@ namespace WinApp2
             this.chkViewHexa.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkViewHexa.Location = new System.Drawing.Point(232, 25);
             this.chkViewHexa.Name = "chkViewHexa";
-            this.chkViewHexa.Size = new System.Drawing.Size(112, 23);
+            this.chkViewHexa.Size = new System.Drawing.Size(132, 25);
             this.chkViewHexa.TabIndex = 5;
             this.chkViewHexa.Text = "View in Hexa";
             this.chkViewHexa.UseVisualStyleBackColor = true;
@@ -389,7 +391,7 @@ namespace WinApp2
             this.tbTest22.Multiline = true;
             this.tbTest22.Name = "tbTest22";
             this.tbTest22.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbTest22.Size = new System.Drawing.Size(386, 308);
+            this.tbTest22.Size = new System.Drawing.Size(386, 304);
             this.tbTest22.TabIndex = 3;
             // 
             // PopupMenu2
@@ -398,12 +400,12 @@ namespace WinApp2
             this.PopupMenu2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.현재창을출력창으로2ToolStripMenuItem});
             this.PopupMenu2.Name = "PopupMenu2";
-            this.PopupMenu2.Size = new System.Drawing.Size(237, 28);
+            this.PopupMenu2.Size = new System.Drawing.Size(275, 36);
             // 
             // 현재창을출력창으로2ToolStripMenuItem
             // 
             this.현재창을출력창으로2ToolStripMenuItem.Name = "현재창을출력창으로2ToolStripMenuItem";
-            this.현재창을출력창으로2ToolStripMenuItem.Size = new System.Drawing.Size(236, 24);
+            this.현재창을출력창으로2ToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
             this.현재창을출력창으로2ToolStripMenuItem.Text = "현재 창을 출력창으로 2";
             this.현재창을출력창으로2ToolStripMenuItem.Click += new System.EventHandler(this.mnuSelect2_Click);
             // 
@@ -417,7 +419,7 @@ namespace WinApp2
             this.tbTest21.Multiline = true;
             this.tbTest21.Name = "tbTest21";
             this.tbTest21.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbTest21.Size = new System.Drawing.Size(373, 308);
+            this.tbTest21.Size = new System.Drawing.Size(373, 304);
             this.tbTest21.TabIndex = 2;
             // 
             // PopupMenu1
@@ -426,12 +428,12 @@ namespace WinApp2
             this.PopupMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.현재창을출력창으로1ToolStripMenuItem});
             this.PopupMenu1.Name = "PopupMenu1";
-            this.PopupMenu1.Size = new System.Drawing.Size(232, 28);
+            this.PopupMenu1.Size = new System.Drawing.Size(269, 36);
             // 
             // 현재창을출력창으로1ToolStripMenuItem
             // 
             this.현재창을출력창으로1ToolStripMenuItem.Name = "현재창을출력창으로1ToolStripMenuItem";
-            this.현재창을출력창으로1ToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
+            this.현재창을출력창으로1ToolStripMenuItem.Size = new System.Drawing.Size(268, 32);
             this.현재창을출력창으로1ToolStripMenuItem.Text = "현재창을 출력창으로 1";
             this.현재창을출력창으로1ToolStripMenuItem.Click += new System.EventHandler(this.mnuSelect1_Click);
             // 
@@ -440,10 +442,10 @@ namespace WinApp2
             this.tabPage3.Controls.Add(this.splitContainer1);
             this.tabPage3.Controls.Add(this.btnGridCmd);
             this.tabPage3.Controls.Add(this.tbGridCmd);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(625, 414);
+            this.tabPage3.Size = new System.Drawing.Size(625, 410);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Data Grid";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -461,15 +463,17 @@ namespace WinApp2
             // 
             this.splitContainer1.Panel1.Controls.Add(this.cbTable);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.tbDatabase);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.btnExecSql);
             this.splitContainer1.Panel1.Controls.Add(this.tbSql);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(625, 408);
-            this.splitContainer1.SplitterDistance = 168;
+            this.splitContainer1.Size = new System.Drawing.Size(625, 404);
+            this.splitContainer1.SplitterDistance = 166;
             this.splitContainer1.TabIndex = 5;
             // 
             // cbTable
@@ -478,7 +482,7 @@ namespace WinApp2
             this.cbTable.FormattingEnabled = true;
             this.cbTable.Location = new System.Drawing.Point(295, 2);
             this.cbTable.Name = "cbTable";
-            this.cbTable.Size = new System.Drawing.Size(150, 25);
+            this.cbTable.Size = new System.Drawing.Size(150, 29);
             this.cbTable.TabIndex = 7;
             this.cbTable.SelectedIndexChanged += new System.EventHandler(this.cbTable_SelectedIndexChanged);
             // 
@@ -487,7 +491,7 @@ namespace WinApp2
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(4, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 19);
+            this.label5.Size = new System.Drawing.Size(77, 21);
             this.label5.TabIndex = 6;
             this.label5.Text = "Database";
             // 
@@ -496,7 +500,7 @@ namespace WinApp2
             this.tbDatabase.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tbDatabase.Location = new System.Drawing.Point(81, 2);
             this.tbDatabase.Name = "tbDatabase";
-            this.tbDatabase.Size = new System.Drawing.Size(208, 25);
+            this.tbDatabase.Size = new System.Drawing.Size(208, 29);
             this.tbDatabase.TabIndex = 5;
             // 
             // btnExecSql
@@ -516,11 +520,11 @@ namespace WinApp2
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSql.Font = new System.Drawing.Font("Consolas", 8F);
-            this.tbSql.Location = new System.Drawing.Point(3, 28);
+            this.tbSql.Location = new System.Drawing.Point(3, 63);
             this.tbSql.Multiline = true;
             this.tbSql.Name = "tbSql";
             this.tbSql.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbSql.Size = new System.Drawing.Size(619, 139);
+            this.tbSql.Size = new System.Drawing.Size(619, 102);
             this.tbSql.TabIndex = 3;
             // 
             // dataGridView1
@@ -536,9 +540,10 @@ namespace WinApp2
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(619, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(619, 228);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
+            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             // 
             // Column1
             // 
@@ -559,21 +564,52 @@ namespace WinApp2
             this.toolStripMenuItem6,
             this.mnuDBSave});
             this.PopupMenu3.Name = "PopupMenu3";
-            this.PopupMenu3.Size = new System.Drawing.Size(211, 164);
+            this.PopupMenu3.Size = new System.Drawing.Size(177, 176);
             // 
             // mnuAddRow
             // 
             this.mnuAddRow.Name = "mnuAddRow";
-            this.mnuAddRow.Size = new System.Drawing.Size(210, 24);
+            this.mnuAddRow.Size = new System.Drawing.Size(240, 32);
             this.mnuAddRow.Text = "행 추가";
             this.mnuAddRow.Click += new System.EventHandler(this.mnuAddRow_Click);
+            // 
+            // mnuDelRecord
+            // 
+            this.mnuDelRecord.Name = "mnuDelRecord";
+            this.mnuDelRecord.Size = new System.Drawing.Size(240, 32);
+            this.mnuDelRecord.Text = "행 삭제";
+            this.mnuDelRecord.Click += new System.EventHandler(this.mnuDelRecord_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(237, 6);
             // 
             // mnucellUpdate
             // 
             this.mnucellUpdate.Name = "mnucellUpdate";
-            this.mnucellUpdate.Size = new System.Drawing.Size(210, 24);
+            this.mnucellUpdate.Size = new System.Drawing.Size(240, 32);
             this.mnucellUpdate.Text = "Cell update";
             this.mnucellUpdate.Click += new System.EventHandler(this.mnucellUpdate_Click);
+            // 
+            // mnuDBInsert
+            // 
+            this.mnuDBInsert.Name = "mnuDBInsert";
+            this.mnuDBInsert.Size = new System.Drawing.Size(240, 32);
+            this.mnuDBInsert.Text = "DB Insert";
+            this.mnuDBInsert.Click += new System.EventHandler(this.mnuDBInsert_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(237, 6);
+            // 
+            // mnuDBSave
+            // 
+            this.mnuDBSave.Name = "mnuDBSave";
+            this.mnuDBSave.Size = new System.Drawing.Size(240, 32);
+            this.mnuDBSave.Text = "DB에 저장";
+            this.mnuDBSave.Click += new System.EventHandler(this.mnuDBSave_Click);
             // 
             // btnGridCmd
             // 
@@ -592,7 +628,7 @@ namespace WinApp2
             this.tbGridCmd.Enabled = false;
             this.tbGridCmd.Location = new System.Drawing.Point(7, 4);
             this.tbGridCmd.Name = "tbGridCmd";
-            this.tbGridCmd.Size = new System.Drawing.Size(54, 25);
+            this.tbGridCmd.Size = new System.Drawing.Size(54, 29);
             this.tbGridCmd.TabIndex = 1;
             this.tbGridCmd.Visible = false;
             // 
@@ -608,7 +644,7 @@ namespace WinApp2
             this.mnuImportCSV});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(633, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(633, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -623,43 +659,43 @@ namespace WinApp2
             this.종료ToolStripMenuItem,
             this.출력창설정ToolStripMenuItem});
             this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
-            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.파일ToolStripMenuItem.Text = "파일";
             // 
             // text파일열기ToolStripMenuItem
             // 
             this.text파일열기ToolStripMenuItem.Name = "text파일열기ToolStripMenuItem";
             this.text파일열기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.text파일열기ToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.text파일열기ToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.text파일열기ToolStripMenuItem.Text = "Text 파일 열기(O)";
             this.text파일열기ToolStripMenuItem.Click += new System.EventHandler(this.btnFileOpen_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(265, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(319, 6);
             // 
             // form2CallTestToolStripMenuItem
             // 
             this.form2CallTestToolStripMenuItem.Name = "form2CallTestToolStripMenuItem";
-            this.form2CallTestToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.form2CallTestToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.form2CallTestToolStripMenuItem.Text = "Form2 Call test";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(265, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(319, 6);
             // 
             // 배열TestToolStripMenuItem
             // 
             this.배열TestToolStripMenuItem.Name = "배열TestToolStripMenuItem";
-            this.배열TestToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.배열TestToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.배열TestToolStripMenuItem.Text = "배열 test";
             // 
             // 종료ToolStripMenuItem
             // 
             this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
-            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.종료ToolStripMenuItem.Text = "종료";
             // 
             // 출력창설정ToolStripMenuItem
@@ -668,13 +704,13 @@ namespace WinApp2
             this.mnuTbSet21,
             this.mnuTbSet22});
             this.출력창설정ToolStripMenuItem.Name = "출력창설정ToolStripMenuItem";
-            this.출력창설정ToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.출력창설정ToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
             this.출력창설정ToolStripMenuItem.Text = "출력창 설정";
             // 
             // mnuTbSet21
             // 
             this.mnuTbSet21.Name = "mnuTbSet21";
-            this.mnuTbSet21.Size = new System.Drawing.Size(162, 26);
+            this.mnuTbSet21.Size = new System.Drawing.Size(199, 34);
             this.mnuTbSet21.Text = "Text 창 #1";
             this.mnuTbSet21.Click += new System.EventHandler(this.mnuTbSet21_Click);
             // 
@@ -683,7 +719,7 @@ namespace WinApp2
             this.mnuTbSet22.Checked = true;
             this.mnuTbSet22.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mnuTbSet22.Name = "mnuTbSet22";
-            this.mnuTbSet22.Size = new System.Drawing.Size(162, 26);
+            this.mnuTbSet22.Size = new System.Drawing.Size(199, 34);
             this.mnuTbSet22.Text = "Text 창 #2";
             this.mnuTbSet22.Click += new System.EventHandler(this.mnuTbSet22_Click);
             // 
@@ -698,22 +734,53 @@ namespace WinApp2
             this.toolStripMenuItem4,
             this.mnuDelTable});
             this.mnuImportCSV.Name = "mnuImportCSV";
-            this.mnuImportCSV.Size = new System.Drawing.Size(86, 24);
+            this.mnuImportCSV.Size = new System.Drawing.Size(103, 29);
             this.mnuImportCSV.Text = "Database";
             // 
             // mnudBFileSelect
             // 
             this.mnudBFileSelect.Name = "mnudBFileSelect";
-            this.mnudBFileSelect.Size = new System.Drawing.Size(282, 26);
+            this.mnudBFileSelect.Size = new System.Drawing.Size(340, 34);
             this.mnudBFileSelect.Text = "DB File Select";
             this.mnudBFileSelect.Click += new System.EventHandler(this.mnudBFileSelect_Click);
             // 
             // mnuDBOpen
             // 
             this.mnuDBOpen.Name = "mnuDBOpen";
-            this.mnuDBOpen.Size = new System.Drawing.Size(282, 26);
+            this.mnuDBOpen.Size = new System.Drawing.Size(340, 34);
             this.mnuDBOpen.Text = "DB Open";
             this.mnuDBOpen.Click += new System.EventHandler(this.mnuDBOpen_Click);
+            // 
+            // mnuDBClose
+            // 
+            this.mnuDBClose.Name = "mnuDBClose";
+            this.mnuDBClose.Size = new System.Drawing.Size(340, 34);
+            this.mnuDBClose.Text = "DB Close";
+            this.mnuDBClose.Click += new System.EventHandler(this.mnuDBClose_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(337, 6);
+            // 
+            // mnuCSVImport
+            // 
+            this.mnuCSVImport.Name = "mnuCSVImport";
+            this.mnuCSVImport.Size = new System.Drawing.Size(340, 34);
+            this.mnuCSVImport.Text = "Migration - Import xls (csv) ";
+            this.mnuCSVImport.Click += new System.EventHandler(this.mnuCSVImport_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(337, 6);
+            // 
+            // mnuDelTable
+            // 
+            this.mnuDelTable.Name = "mnuDelTable";
+            this.mnuDelTable.Size = new System.Drawing.Size(340, 34);
+            this.mnuDelTable.Text = "테이블 삭제";
+            this.mnuDelTable.Click += new System.EventHandler(this.mnuDelTable_Click);
             // 
             // statusStrip1
             // 
@@ -722,9 +789,9 @@ namespace WinApp2
             this.StatusLabel1,
             this.StatusLabel2,
             this.StatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 485);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 479);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(633, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(633, 32);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -732,80 +799,38 @@ namespace WinApp2
             // 
             this.StatusLabel1.ForeColor = System.Drawing.Color.Black;
             this.StatusLabel1.Name = "StatusLabel1";
-            this.StatusLabel1.Size = new System.Drawing.Size(152, 20);
+            this.StatusLabel1.Size = new System.Drawing.Size(183, 25);
             this.StatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // StatusLabel2
             // 
             this.StatusLabel2.Name = "StatusLabel2";
-            this.StatusLabel2.Size = new System.Drawing.Size(0, 20);
+            this.StatusLabel2.Size = new System.Drawing.Size(0, 25);
             // 
             // StatusLabel3
             // 
             this.StatusLabel3.Name = "StatusLabel3";
-            this.StatusLabel3.Size = new System.Drawing.Size(15, 20);
+            this.StatusLabel3.Size = new System.Drawing.Size(19, 25);
             this.StatusLabel3.Text = "-";
             // 
-            // mnuDBClose
+            // textBox1
             // 
-            this.mnuDBClose.Name = "mnuDBClose";
-            this.mnuDBClose.Size = new System.Drawing.Size(282, 26);
-            this.mnuDBClose.Text = "DB Close";
-            this.mnuDBClose.Click += new System.EventHandler(this.mnuDBClose_Click);
+            this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox1.Location = new System.Drawing.Point(81, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(208, 29);
+            this.textBox1.TabIndex = 5;
             // 
-            // mnuCSVImport
+            // button1
             // 
-            this.mnuCSVImport.Name = "mnuCSVImport";
-            this.mnuCSVImport.Size = new System.Drawing.Size(282, 26);
-            this.mnuCSVImport.Text = "Migration - Import xls (csv) ";
-            this.mnuCSVImport.Click += new System.EventHandler(this.mnuCSVImport_Click);
-            // 
-            // mnuDBSave
-            // 
-            this.mnuDBSave.Name = "mnuDBSave";
-            this.mnuDBSave.Size = new System.Drawing.Size(210, 24);
-            this.mnuDBSave.Text = "DB에 저장";
-            this.mnuDBSave.Click += new System.EventHandler(this.mnuDBSave_Click);
-            // 
-            // mnuDelTable
-            // 
-            this.mnuDelTable.Name = "mnuDelTable";
-            this.mnuDelTable.Size = new System.Drawing.Size(282, 26);
-            this.mnuDelTable.Text = "테이블 삭제";
-            this.mnuDelTable.Click += new System.EventHandler(this.mnuDelTable_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(279, 6);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(279, 6);
-            // 
-            // mnuDelRecord
-            // 
-            this.mnuDelRecord.Name = "mnuDelRecord";
-            this.mnuDelRecord.Size = new System.Drawing.Size(210, 24);
-            this.mnuDelRecord.Text = "행 삭제";
-            this.mnuDelRecord.Click += new System.EventHandler(this.mnuDelRecord_Click);
-            // 
-            // mnuDBInsert
-            // 
-            this.mnuDBInsert.Name = "mnuDBInsert";
-            this.mnuDBInsert.Size = new System.Drawing.Size(210, 24);
-            this.mnuDBInsert.Text = "DB Insert";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(207, 6);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(207, 6);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(295, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 25);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "DBCTest";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -922,6 +947,8 @@ namespace WinApp2
         private ToolStripSeparator toolStripMenuItem5;
         private ToolStripMenuItem mnuDBInsert;
         private ToolStripSeparator toolStripMenuItem6;
+        private TextBox textBox1;
+        private Button button1;
     }
 }
 
